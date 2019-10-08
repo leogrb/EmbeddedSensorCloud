@@ -13,12 +13,12 @@ public class ResponseImpl implements Response {
     private String content;
 
     public ResponseImpl() {
-        this.responseHeaders.put("Server", "BIF-SWE1-Server");
+        responseHeaders.put("Server", "BIF-SWE1-Server");
     }
 
     @Override
     public Map<String, String> getHeaders() {
-        return this.responseHeaders;
+        return responseHeaders;
     }
 
     @Override
@@ -41,13 +41,13 @@ public class ResponseImpl implements Response {
 
     @Override
     public String getContentType() {
-        return this.responseHeaders.get("Content-Type");
+        return responseHeaders.get("Content-Type");
     }
 
     @Override
     public void setContentType(String contentType) {
         try {
-            this.responseHeaders.put("Content-Type", contentType);
+            responseHeaders.put("Content-Type", contentType);
         } catch (IllegalStateException e) {
             System.err.println("Error setting content type: " + e.getMessage());
         }
@@ -72,7 +72,7 @@ public class ResponseImpl implements Response {
 
     @Override
     public String getStatus() {
-        if (this.status != null) {
+        if (status != null) {
             String statusAsString = Integer.toString(status.getCode()) + " " + status.getDescription();
             return statusAsString;
         }
@@ -81,17 +81,17 @@ public class ResponseImpl implements Response {
 
     @Override
     public void addHeader(String header, String value) {
-        this.responseHeaders.put(header, value);
+        responseHeaders.put(header, value);
     }
 
     @Override
     public String getServerHeader() {
-        return this.responseHeaders.get("Server");
+        return responseHeaders.get("Server");
     }
 
     @Override
     public void setServerHeader(String server) {
-        this.responseHeaders.replace("Server", server);
+        responseHeaders.replace("Server", server);
     }
 
     @Override

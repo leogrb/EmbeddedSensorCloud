@@ -16,54 +16,56 @@ public class RequestImpl implements Request {
     private String body;
 
     public RequestImpl(InputStream in){
-        this.bufreader = new BufferedReader(new InputStreamReader(in));
-        this.initParsing();
+        bufreader = new BufferedReader(new InputStreamReader(in));
+        initParsing();
     }
     public void parseInitLine() throws IOException {
-        if(this.bufreader.ready()) {
-            String temp = this.bufreader.readLine();
-            this.requestparams = temp.split("[ ]"); // get first line -> 3 params
+        if(bufreader.ready()) {
+            String temp = bufreader.readLine();
+            requestparams = temp.split("[ ]"); // get first line -> 3 params
         }
     }
     public void parseHeader() throws IOException{
-        this.header = new HashMap<String, String>();
+        header = new HashMap<String, String>();
         String templine;
         String pairs[];
-        while((templine = this.bufreader.readLine()) != null && !templine.isEmpty()){ // read until request body if existing
+        while((templine = bufreader.readLine()) != null && !templine.isEmpty()){ // read until request body if existing
             pairs = templine.split("[: ]", 2);
-            this.header.put(pairs[0].toLowerCase(), pairs[1]); // lowerCase for getHeaders()
+            header.put(pairs[0].toLowerCase(), pairs[1]); // lowerCase for getHeaders()
         }
     }
     public void parseBody() throws IOException{
         StringBuilder s = new StringBuilder();
         String line;
-        while((line = this.bufreader.readLine()) != null){
+        while((line = bufreader.readLine()) != null){
             s.append(line);
         }
         this.body = s.toString();
     }
     public void initParsing(){
         try {
-            this.parseInitLine();
-            this.parseHeader();
-            this.parseBody();
+            parseInitLine();
+            parseHeader();
+            if(requestparams[0].toUpperCase() == "POST"){
+                parseBody();
+            }
         } catch (IOException e){
             System.err.println("ERROR request stream " + e.getMessage());
         }
     }
     @Override
     public boolean isValid() {
-        if(this.requestparams.length != 3){ // method path httpversion
+        if(requestparams.length != 3){ // method path httpversion
             return false;
         }
-        boolean contains = Arrays.stream(this.methods).anyMatch(this.requestparams[0].toUpperCase()::equals);
+        boolean contains = Arrays.stream(this.methods).anyMatch(requestparams[0].toUpperCase()::equals);
         return contains;
     }
 
     @Override
     public String getMethod() {
         if(isValid()) {
-            return (this.requestparams[0].toUpperCase());
+            return (requestparams[0].toUpperCase());
         }
         return null;
     }
@@ -71,40 +73,40 @@ public class RequestImpl implements Request {
     @Override
     public Url getUrl() {
         if(isValid()){
-            return (new UrlImpl(this.requestparams[1]));
+            return (new UrlImpl(requestparams[1]));
         }
         return (new UrlImpl(""));
     }
 
     @Override
     public Map<String, String> getHeaders() {
-        return this.header;
+        return header;
     }
 
     @Override
     public int getHeaderCount() {
-        return this.header.size();
+        return header.size();
     }
 
     @Override
     public String getUserAgent() {
-        return this.header.get("user-agent");
+        return header.get("user-agent");
     }
 
     @Override
     public int getContentLength() {
-        return Integer.parseInt(this.header.get("content-length"));
+        return Integer.parseInt(header.get("content-length"));
     }
 
     @Override
     public String getContentType() {
-        return this.header.get("content-type");
+        return header.get("content-type");
     }
 
     @Override
     public InputStream getContentStream() {
-        if(!this.body.equals(null)){
-            InputStream in = new ByteArrayInputStream(this.body.getBytes());
+        if(!body.equals(null)){
+            InputStream in = new ByteArrayInputStream(body.getBytes());
             return in;
         }
         return null;
@@ -112,7 +114,7 @@ public class RequestImpl implements Request {
 
     @Override
     public String getContentString() {
-        if(this.body != null){
+        if(body != null){
             return body;
         }
         return null;
@@ -120,8 +122,8 @@ public class RequestImpl implements Request {
 
     @Override
     public byte[] getContentBytes() {
-        if(this.body != null){
-            return this.body.getBytes();
+        if(body != null){
+            return body.getBytes();
         }
         return null;
     }

@@ -21,12 +21,12 @@ public class UrlImpl implements Url {
     @Override
     public String getPath() {
         // TODO Auto-generated method stub
-        if(this.rawurl != null) {
-            if (this.rawurl.contains("?")) { // query
-                return (this.rawurl.split("[?]")[0]);
-            } else if (this.rawurl.contains("#")) { // fragment
-                return (this.rawurl.split("[#]")[0]);
-            } else return this.rawurl;
+        if(rawurl != null) {
+            if (rawurl.contains("?")) { // query
+                return (rawurl.split("[?]")[0]);
+            } else if (rawurl.contains("#")) { // fragment
+                return (rawurl.split("[#]")[0]);
+            } else return rawurl;
         }
         return "";
     }
@@ -34,7 +34,7 @@ public class UrlImpl implements Url {
     @Override
     public String getRawUrl() {
         // TODO Auto-generated method stub
-        return this.rawurl;
+        return rawurl;
     }
 
     @Override
@@ -65,9 +65,9 @@ public class UrlImpl implements Url {
 
     @Override
     public String getFragment() {
-        if(this.rawurl != null) {
-            if (this.rawurl.contains("#")) { // fragment
-                return (this.rawurl.split("[#]")[1]);
+        if(rawurl != null) {
+            if (rawurl.contains("#")) { // fragment
+                return (rawurl.split("[#]")[1]);
             }
         }
         return "";
@@ -78,9 +78,9 @@ public class UrlImpl implements Url {
         // TODO Auto-generated method stub
         // return map after '?'
         Map<String, String> params = new HashMap<String, String>();
-        if(this.rawurl != null) {
-            if(this.rawurl.contains("?")) {
-                String temp = this.rawurl.split("[?]")[1];
+        if(rawurl != null) {
+            if(rawurl.contains("?")) {
+                String temp = rawurl.split("[?]")[1];
                 String split[] = temp.split("[&]");
                 for (int i = 0; i < split.length; i++) {
                     String pair[] = split[i].split("[=]");
@@ -102,14 +102,14 @@ public class UrlImpl implements Url {
     @Override
     public String[] getSegments() {
         // TODO Auto-generated method stub
-        String path = this.getPath();
+        String path = getPath();
         String segments[] = new String[0];
         String t[];
         if(path == ""){
             return segments;
         }
         else{
-            segments = this.rawurl.substring(1).split("[/]");
+            segments = rawurl.substring(1).split("[/]");
             return segments;
         }
     }
