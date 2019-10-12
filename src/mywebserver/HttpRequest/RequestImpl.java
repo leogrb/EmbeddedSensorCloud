@@ -1,7 +1,8 @@
-package mywebserver;
+package mywebserver.HttpRequest;
 
 import BIF.SWE1.interfaces.Request;
 import BIF.SWE1.interfaces.Url;
+import mywebserver.UrlImpl;
 
 import java.io.*;
 import java.util.HashMap;
@@ -39,6 +40,7 @@ public class RequestImpl implements Request {
         String line;
         while((line = bufreader.readLine()) != null){
             s.append(line);
+            s.append('\n');
         }
         this.body = s.toString();
     }
@@ -46,7 +48,7 @@ public class RequestImpl implements Request {
         try {
             parseInitLine();
             parseHeader();
-            if(requestparams[0].toUpperCase() == "POST"){
+            if(requestparams != null && requestparams[0].toUpperCase().equals("POST")){
                 parseBody();
             }
         } catch (IOException e){
@@ -55,11 +57,14 @@ public class RequestImpl implements Request {
     }
     @Override
     public boolean isValid() {
-        if(requestparams.length != 3){ // method path httpversion
+        if(requestparams != null && requestparams.length != 3){ // method path httpversion
             return false;
         }
-        boolean contains = Arrays.stream(this.methods).anyMatch(requestparams[0].toUpperCase()::equals);
-        return contains;
+        if(requestparams != null) {
+            boolean contains = Arrays.stream(this.methods).anyMatch(requestparams[0].toUpperCase()::equals);
+            return contains;
+        }
+        return false;
     }
 
     @Override

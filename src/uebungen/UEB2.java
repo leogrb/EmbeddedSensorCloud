@@ -5,8 +5,8 @@ import java.io.InputStream;
 import BIF.SWE1.interfaces.Request;
 import BIF.SWE1.interfaces.Response;
 import BIF.SWE1.interfaces.Url;
-import mywebserver.RequestImpl;
-import mywebserver.ResponseImpl;
+import mywebserver.HttpRequest.RequestImpl;
+import mywebserver.HttpResponse.ResponseImpl;
 import mywebserver.UrlImpl;
 
 public class UEB2 {

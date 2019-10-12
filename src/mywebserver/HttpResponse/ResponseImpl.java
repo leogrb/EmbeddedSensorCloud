@@ -1,19 +1,27 @@
-package mywebserver;
+package mywebserver.HttpResponse;
 
 import BIF.SWE1.interfaces.Response;
 
 import java.io.*;
+import java.lang.reflect.UndeclaredThrowableException;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class ResponseImpl implements Response {
     private Status status;
+    private String standardHttp;
     private Map<String, String> responseHeaders = new HashMap<String, String>();
     private String content;
+    private String statusLine;
+    private String headersAsString;
+    private String httpResponse;
 
     public ResponseImpl() {
         responseHeaders.put("Server", "BIF-SWE1-Server");
+        responseHeaders.put("Date", LocalDateTime.now().toString());
+        standardHttp = "HTTP/1.1";
     }
 
     @Override
@@ -118,6 +126,7 @@ public class ResponseImpl implements Response {
         try {
             while ((line = bf.readLine()) != null) {
                 s.append(line);
+                s.append('\n');
             }
         } catch(IOException e){
             System.err.println("Exception " + e.getMessage());
@@ -126,7 +135,58 @@ public class ResponseImpl implements Response {
     }
 
     @Override
-    public void send(OutputStream network) {
+    public void send(OutputStream network){
+        setStatusLine();
+        setHeaderString();
+        try {
+            setHttpResponse();
+        } catch (Exception e) {
+            throw new UndeclaredThrowableException(e);
+        }
+        try{
+            if(httpResponse != null) {
+                network.write(httpResponse.getBytes("UTF-8"));
+            }
+        } catch (IOException e){
+            System.err.println("Error" + e.getMessage());
+        }
+    }
 
+    public void setStatusLine(){
+        StringBuilder s = new StringBuilder();
+        s.append(standardHttp);
+        s.append(' ');
+        s.append(getStatus());
+        s.append('\n');
+        statusLine = s.toString();
+    }
+
+    public void setHeaderString(){
+        //content:
+        StringBuilder s = new StringBuilder();
+        int contentLen;
+        if((contentLen = getContentLength())!= 0){
+            addHeader("Content-Length", Integer.toString(contentLen));
+        }
+        for (Map.Entry<String, String> entry : responseHeaders.entrySet()) {
+            String key = entry.getKey();
+            s.append(entry.getKey());
+            s.append(": ");
+            s.append(entry.getValue());
+            s.append('\n');
+        }
+        s.append('\n');
+        headersAsString = s.toString();
+    }
+
+    public void setHttpResponse() throws Exception {
+        StringBuilder s = new StringBuilder();
+        s.append(statusLine);
+        s.append(headersAsString);
+        if(getContentType() != null && this.content == null) {
+            throw new Exception("Content is null");
+        }
+        s.append(content);
+        httpResponse = s.toString();
     }
 }

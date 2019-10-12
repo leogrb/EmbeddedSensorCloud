@@ -1,4 +1,4 @@
-package mywebserver;
+package mywebserver.HttpResponse;
 
 public enum Status {
     CONTINUE(100, "Continue"),
