@@ -5,6 +5,9 @@ import java.io.InputStream;
 import BIF.SWE1.interfaces.Plugin;
 import BIF.SWE1.interfaces.PluginManager;
 import BIF.SWE1.interfaces.Request;
+import mywebserver.HttpRequest.RequestImpl;
+import mywebserver.Plugin.PluginManagerImpl;
+import mywebserver.Plugin.PluginStatic;
 
 public class UEB5 {
 
@@ -13,15 +16,15 @@ public class UEB5 {
 	}
 
 	public Request getRequest(InputStream inputStream) {
-		return null;
+		return new RequestImpl(inputStream);
 	}
 
 	public PluginManager getPluginManager() {
-		return null;
+		return (new PluginManagerImpl());
 	}
 
 	public Plugin getStaticFilePlugin() {
-		return null;
+		return new PluginStatic();
 	}
 
 	public void setStatiFileFolder(String s) {

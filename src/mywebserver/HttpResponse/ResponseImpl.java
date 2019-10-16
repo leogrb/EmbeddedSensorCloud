@@ -126,7 +126,6 @@ public class ResponseImpl implements Response {
         try {
             while ((line = bf.readLine()) != null) {
                 s.append(line);
-                s.append('\n');
             }
         } catch(IOException e){
             System.err.println("Exception " + e.getMessage());

@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/Serverthread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginManagerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginNavi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginStatic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginToLower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/PluginTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/RequestImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/ResponseImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Status.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/uebungen/UEB2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/uebungen/UEB2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/uebungen/UEB3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/uebungen/UEB3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/PluginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/RequestImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpRequest/RequestImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/ResponseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpResponse/ResponseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpResponse/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uebungen/UEB2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uebungen/UEB2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uebungen/UEB3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uebungen/UEB3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpRequest/RequestImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpRequest/RequestImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpResponse/ResponseImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpResponse/ResponseImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/uebungen/UEB4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/uebungen/UEB4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/uebungen/UEB5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/uebungen/UEB5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/HttpRequest/RequestImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpRequest/RequestImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/HttpResponse/ResponseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpResponse/ResponseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uebungen/UEB4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uebungen/UEB4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uebungen/UEB5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uebungen/UEB5.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,8 +66,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AllTests">
-    <configuration name="AllTests" type="JUnit" factoryName="JUnit" singleton="false" temporary="true">
+  <component name="RunManager" selected="JUnit.UEB5Test">
+    <configuration name="UEB4Test" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
         <pattern>
@@ -83,16 +78,16 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="PACKAGE_NAME" value="BIF.SWE1.unittests" />
-      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB4Test" />
       <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UEB3Test.response_should_fail_sending_no_content" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="UEB5Test" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
         <pattern>
@@ -103,8 +98,28 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="PACKAGE_NAME" value="BIF.SWE1.unittests" />
-      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB3Test" />
-      <option name="METHOD_NAME" value="response_should_fail_sending_no_content" />
+      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB5Test" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UEB5Test.pluginmanager_should_add_plugin" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
+      <module name="BIF-SWE1.UnitTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BIF.SWE1.unittests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="12" />
+      <option name="PACKAGE_NAME" value="BIF.SWE1.unittests" />
+      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB5Test" />
+      <option name="METHOD_NAME" value="pluginmanager_should_add_plugin" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
@@ -112,7 +127,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UEB3Test.response_should_send_404" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="UEB5Test.pluginmanager_should_fail_adding_non_existing_plugin" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
         <pattern>
@@ -123,8 +138,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="PACKAGE_NAME" value="BIF.SWE1.unittests" />
-      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB3Test" />
-      <option name="METHOD_NAME" value="response_should_send_404" />
+      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB5Test" />
+      <option name="METHOD_NAME" value="pluginmanager_should_fail_adding_non_existing_plugin" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
@@ -132,7 +147,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UEB3Test.response_should_send_server_header" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="UEB5Test.pluginmanager_should_fail_adding_plugin_not_implementing_plugin" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
         <pattern>
@@ -143,28 +158,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="PACKAGE_NAME" value="BIF.SWE1.unittests" />
-      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB3Test" />
-      <option name="METHOD_NAME" value="response_should_send_server_header" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UEB3Test.testplugin_can_handle_test_url" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
-      <module name="BIF-SWE1.UnitTests" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BIF.SWE1.unittests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="12" />
-      <option name="PACKAGE_NAME" value="BIF.SWE1.unittests" />
-      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB3Test" />
-      <option name="METHOD_NAME" value="testplugin_can_handle_test_url" />
+      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB5Test" />
+      <option name="METHOD_NAME" value="pluginmanager_should_fail_adding_plugin_not_implementing_plugin" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
@@ -188,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AllTests" />
-        <item itemvalue="JUnit.UEB3Test.testplugin_can_handle_test_url" />
-        <item itemvalue="JUnit.UEB3Test.response_should_fail_sending_no_content" />
-        <item itemvalue="JUnit.UEB3Test.response_should_send_404" />
-        <item itemvalue="JUnit.UEB3Test.response_should_send_server_header" />
+        <item itemvalue="JUnit.UEB5Test" />
+        <item itemvalue="JUnit.UEB5Test.pluginmanager_should_fail_adding_plugin_not_implementing_plugin" />
+        <item itemvalue="JUnit.UEB5Test.pluginmanager_should_fail_adding_non_existing_plugin" />
+        <item itemvalue="JUnit.UEB5Test.pluginmanager_should_add_plugin" />
+        <item itemvalue="JUnit.UEB4Test" />
       </list>
     </recent_temporary>
   </component>
@@ -226,19 +221,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$USER_HOME$/unit-tests-BIF-SWE1_Java-master/unit-tests-BIF-SWE1_Java-master/BIF-SWE1/Java/BIF-SWE1.UnitTests/src/BIF/SWE1/unittests/UEB3Test.java</url>
-          <line>203</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$USER_HOME$/unit-tests-BIF-SWE1_Java-master/unit-tests-BIF-SWE1_Java-master/BIF-SWE1/Java/BIF-SWE1.UnitTests/src/BIF/SWE1/unittests/UEB4Test.java</url>
+          <line>196</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$USER_HOME$/unit-tests-BIF-SWE1_Java-master/unit-tests-BIF-SWE1_Java-master/BIF-SWE1/Java/BIF-SWE1.UnitTests/src/BIF/SWE1/unittests/UEB3Test.java</url>
-          <line>299</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$USER_HOME$/unit-tests-BIF-SWE1_Java-master/unit-tests-BIF-SWE1_Java-master/BIF-SWE1/Java/BIF-SWE1.UnitTests/src/BIF/SWE1/unittests/UEB3Test.java</url>
-          <line>358</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$USER_HOME$/unit-tests-BIF-SWE1_Java-master/unit-tests-BIF-SWE1_Java-master/BIF-SWE1/Java/BIF-SWE1.UnitTests/src/BIF/SWE1/unittests/UEB5Test.java</url>
+          <line>223</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

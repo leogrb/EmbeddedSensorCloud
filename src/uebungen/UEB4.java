@@ -5,6 +5,9 @@ import java.io.InputStream;
 import BIF.SWE1.interfaces.PluginManager;
 import BIF.SWE1.interfaces.Request;
 import BIF.SWE1.interfaces.Response;
+import mywebserver.HttpRequest.RequestImpl;
+import mywebserver.HttpResponse.ResponseImpl;
+import mywebserver.Plugin.PluginManagerImpl;
 
 public class UEB4 {
 
@@ -13,14 +16,14 @@ public class UEB4 {
 	}
 
 	public Request getRequest(InputStream inputStream) {
-		return null;
+		return new RequestImpl(inputStream);
 	}
 
 	public Response getResponse() {
-		return null;
+		return new ResponseImpl();
 	}
 
 	public PluginManager getPluginManager() {
-		return null;
+		return new PluginManagerImpl();
 	}
 }

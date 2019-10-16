@@ -31,7 +31,7 @@ public class RequestImpl implements Request {
         String templine;
         String pairs[];
         while((templine = bufreader.readLine()) != null && !templine.isEmpty()){ // read until request body if existing
-            pairs = templine.split("[: ]", 2);
+            pairs = templine.split(": ", 2);
             header.put(pairs[0].toLowerCase(), pairs[1]); // lowerCase for getHeaders()
         }
     }
@@ -40,7 +40,6 @@ public class RequestImpl implements Request {
         String line;
         while((line = bufreader.readLine()) != null){
             s.append(line);
-            s.append('\n');
         }
         this.body = s.toString();
     }
