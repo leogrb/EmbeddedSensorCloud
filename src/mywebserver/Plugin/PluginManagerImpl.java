@@ -36,36 +36,21 @@ public class PluginManagerImpl implements PluginManager {
     @Override
     public void add(String plugin) throws InstantiationException, IllegalAccessException, ClassNotFoundException, MalformedURLException {
         Plugin plug = null;
-        File dir = new File(".");
-        File[] filesInDir = dir.listFiles();
-        String fileName;
-        for(File file : filesInDir){
-            if(file.isFile()){
-                fileName = file.getName();
-                if(fileName.endsWith(".jar")){
-                    URL fileUrl = file.toURI().toURL();
-                    String pseudofileUrl= "j" + fileUrl;
-                    String realfileUrl = pseudofileUrl.substring(1);
-                    URL classUrl = new URL(realfileUrl);
-                    URL[] classUrls = { classUrl };
-                    URLClassLoader ucl = new URLClassLoader(classUrls);
-
-                    Class<?> clazz = Class.forName(plugin, true, ucl);
-                    Class[] interfaces = clazz.getInterfaces();
-                    for (Class i : interfaces) {
-                        if (i.toString().equals(Plugin.class.toString())) {
-                            plug = (Plugin) clazz.newInstance();
-                        }
-                    }
+        Class<?> clazz = Class.forName(plugin);
+        Class[] interfaces = clazz.getInterfaces();
+        for (Class i : interfaces) {
+            if (i.toString().equals(Plugin.class.toString())) {
+                plug = (Plugin) clazz.newInstance();
+            }
+        }
                     /*if(Plugin.class.isAssignableFrom(clazz)){
                         plug = (Plugin) clazz.newInstance();
                     }*/
-
-                }
-            }
-        }
         if(plug != null){
             add(plug);
+        }
+        else{
+            throw new ClassNotFoundException();
         }
     }
 

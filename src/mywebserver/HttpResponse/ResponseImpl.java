@@ -1,6 +1,7 @@
 package mywebserver.HttpResponse;
 
 import BIF.SWE1.interfaces.Response;
+import mywebserver.Plugin.MIMETypes;
 
 import java.io.*;
 import java.lang.reflect.UndeclaredThrowableException;
@@ -11,6 +12,7 @@ import java.util.Map;
 
 public class ResponseImpl implements Response {
     private Status status;
+    private MIMETypes mimeType;
     private String standardHttp;
     private Map<String, String> responseHeaders = new HashMap<String, String>();
     private String content;
@@ -73,6 +75,17 @@ public class ResponseImpl implements Response {
         this.status = status;
     }
 
+    public void setMimeType(String fileExt){
+        this.mimeType = MIMETypes.getMimeTypeWithExt(fileExt);
+    }
+
+    public String getMimeType() {
+        if(mimeType != null){
+            return mimeType.getContentType();
+        }
+        throw new IllegalArgumentException("Mime Type not set");
+
+    }
     @Override
     public void setStatusCode(int status) {
         this.status = Status.getStatusWithCode(status);

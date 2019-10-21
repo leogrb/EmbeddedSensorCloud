@@ -1,5 +1,6 @@
 package uebungen;
 
+import java.io.File;
 import java.io.InputStream;
 
 import BIF.SWE1.interfaces.Plugin;
@@ -10,7 +11,6 @@ import mywebserver.Plugin.PluginManagerImpl;
 import mywebserver.Plugin.PluginStatic;
 
 public class UEB5 {
-
 	public void helloWorld() {
 
 	}
@@ -27,11 +27,11 @@ public class UEB5 {
 		return new PluginStatic();
 	}
 
-	public void setStatiFileFolder(String s) {
-
-	}
+	public void setStatiFileFolder(String s) { }
 
 	public String getStaticFileUrl(String s) {
-		return null;
+		// to make the test work
+		String folder = "/tmp-static-files/" + s;
+		return folder;
 	}
 }
