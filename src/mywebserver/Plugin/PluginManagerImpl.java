@@ -13,14 +13,16 @@ import java.io.File;
 
 public class PluginManagerImpl implements PluginManager {
     private List<Plugin> allPlugins = new ArrayList<Plugin>();
-    public PluginManagerImpl(){
-        if(allPlugins != null) {
+
+    public PluginManagerImpl() {
+        if (allPlugins != null) {
             allPlugins.add(new PluginTemperature());
             allPlugins.add(new PluginStatic());
             allPlugins.add(new PluginNavi());
             allPlugins.add(new PluginToLower());
         }
     }
+
     @Override
     public List<Plugin> getPlugins() {
         return allPlugins;
@@ -28,7 +30,7 @@ public class PluginManagerImpl implements PluginManager {
 
     @Override
     public void add(Plugin plugin) {
-        if(!allPlugins.contains(plugin)){
+        if (!allPlugins.contains(plugin)) {
             allPlugins.add(plugin);
         }
     }
@@ -46,10 +48,9 @@ public class PluginManagerImpl implements PluginManager {
                     /*if(Plugin.class.isAssignableFrom(clazz)){
                         plug = (Plugin) clazz.newInstance();
                     }*/
-        if(plug != null){
+        if (plug != null) {
             add(plug);
-        }
-        else{
+        } else {
             throw new ClassNotFoundException();
         }
     }

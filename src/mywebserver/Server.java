@@ -15,7 +15,7 @@ public class Server {
         serverSocket = new ServerSocket(port); //listen on port
     }
 
-    public void run() throws IOException, NullPointerException{
+    public void run() throws IOException, NullPointerException {
         while (true) {
             Socket cl = this.serverSocket.accept(); //accept connection and create socket obj
             Serverthread client = new Serverthread(cl);

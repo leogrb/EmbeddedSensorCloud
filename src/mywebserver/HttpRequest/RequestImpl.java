@@ -16,50 +16,55 @@ public class RequestImpl implements Request {
     private Map<String, String> header;
     private String body;
 
-    public RequestImpl(InputStream in){
+    public RequestImpl(InputStream in) {
         bufreader = new BufferedReader(new InputStreamReader(in));
         initParsing();
     }
+
     public void parseInitLine() throws IOException {
-        if(bufreader.ready()) {
+        if (bufreader.ready()) {
             String temp = bufreader.readLine();
             requestparams = temp.split("[ ]"); // get first line -> 3 params
         }
     }
-    public void parseHeader() throws IOException{
+
+    public void parseHeader() throws IOException {
         header = new HashMap<String, String>();
         String templine;
         String pairs[];
-        while((templine = bufreader.readLine()) != null && !templine.isEmpty()){ // read until request body if existing
+        while ((templine = bufreader.readLine()) != null && !templine.isEmpty()) { // read until request body if existing
             pairs = templine.split(": ", 2);
             header.put(pairs[0].toLowerCase(), pairs[1]); // lowerCase for getHeaders()
         }
     }
-    public void parseBody() throws IOException{
+
+    public void parseBody() throws IOException {
         StringBuilder s = new StringBuilder();
         String line;
-        while((line = bufreader.readLine()) != null){
+        while ((line = bufreader.readLine()) != null) {
             s.append(line);
         }
         this.body = s.toString();
     }
-    public void initParsing(){
+
+    public void initParsing() {
         try {
             parseInitLine();
             parseHeader();
-            if(requestparams != null && requestparams[0].toUpperCase().equals("POST")){
+            if (requestparams != null && requestparams[0].toUpperCase().equals("POST")) {
                 parseBody();
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             System.err.println("ERROR request stream " + e.getMessage());
         }
     }
+
     @Override
     public boolean isValid() {
-        if(requestparams != null && requestparams.length != 3){ // method path httpversion
+        if (requestparams != null && requestparams.length != 3) { // method path httpversion
             return false;
         }
-        if(requestparams != null) {
+        if (requestparams != null) {
             boolean contains = Arrays.stream(this.methods).anyMatch(requestparams[0].toUpperCase()::equals);
             return contains;
         }
@@ -68,7 +73,7 @@ public class RequestImpl implements Request {
 
     @Override
     public String getMethod() {
-        if(isValid()) {
+        if (isValid()) {
             return (requestparams[0].toUpperCase());
         }
         return null;
@@ -76,7 +81,7 @@ public class RequestImpl implements Request {
 
     @Override
     public Url getUrl() {
-        if(isValid()){
+        if (isValid()) {
             return (new UrlImpl(requestparams[1]));
         }
         return (new UrlImpl(""));
@@ -109,7 +114,7 @@ public class RequestImpl implements Request {
 
     @Override
     public InputStream getContentStream() {
-        if(!body.equals(null)){
+        if (!body.equals(null)) {
             InputStream in = new ByteArrayInputStream(body.getBytes());
             return in;
         }
@@ -118,7 +123,7 @@ public class RequestImpl implements Request {
 
     @Override
     public String getContentString() {
-        if(body != null){
+        if (body != null) {
             return body;
         }
         return null;
@@ -126,7 +131,7 @@ public class RequestImpl implements Request {
 
     @Override
     public byte[] getContentBytes() {
-        if(body != null){
+        if (body != null) {
             return body.getBytes();
         }
         return null;

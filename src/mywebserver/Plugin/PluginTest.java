@@ -12,7 +12,7 @@ public class PluginTest implements Plugin {
     @Override
     public float canHandle(Request req) {
         float score = PluginUtil.calcScore(this.getClass(), req);
-        if(req.getUrl().getPath().equals("/")){
+        if (req.getUrl().getPath().equals("/")) {
             score += 0.05;
         }
         return score;

@@ -75,17 +75,18 @@ public class ResponseImpl implements Response {
         this.status = status;
     }
 
-    public void setMimeType(String fileExt){
+    public void setMimeType(String fileExt) {
         this.mimeType = MIMETypes.getMimeTypeWithExt(fileExt);
     }
 
     public String getMimeType() {
-        if(mimeType != null){
+        if (mimeType != null) {
             return mimeType.getContentType();
         }
         throw new IllegalArgumentException("Mime Type not set");
 
     }
+
     @Override
     public void setStatusCode(int status) {
         this.status = Status.getStatusWithCode(status);
@@ -117,7 +118,7 @@ public class ResponseImpl implements Response {
 
     @Override
     public void setContent(String content) {
-        if(!content.isEmpty()) {
+        if (!content.isEmpty()) {
             this.content = content;
         }
     }
@@ -126,7 +127,7 @@ public class ResponseImpl implements Response {
     public void setContent(byte[] content) {
         try {
             this.content = new String(content, "UTF-8");
-        }catch (UnsupportedEncodingException e){
+        } catch (UnsupportedEncodingException e) {
             System.err.println("UTF-8 not supported");
         }
     }
@@ -140,14 +141,14 @@ public class ResponseImpl implements Response {
             while ((line = bf.readLine()) != null) {
                 s.append(line);
             }
-        } catch(IOException e){
+        } catch (IOException e) {
             System.err.println("Exception " + e.getMessage());
         }
         this.content = s.toString();
     }
 
     @Override
-    public void send(OutputStream network){
+    public void send(OutputStream network) {
         setStatusLine();
         setHeaderString();
         try {
@@ -155,16 +156,16 @@ public class ResponseImpl implements Response {
         } catch (Exception e) {
             throw new UndeclaredThrowableException(e);
         }
-        try{
-            if(httpResponse != null) {
+        try {
+            if (httpResponse != null) {
                 network.write(httpResponse.getBytes("UTF-8"));
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             System.err.println("Error" + e.getMessage());
         }
     }
 
-    public void setStatusLine(){
+    public void setStatusLine() {
         StringBuilder s = new StringBuilder();
         s.append(standardHttp);
         s.append(' ');
@@ -173,11 +174,11 @@ public class ResponseImpl implements Response {
         statusLine = s.toString();
     }
 
-    public void setHeaderString(){
+    public void setHeaderString() {
         //content:
         StringBuilder s = new StringBuilder();
         int contentLen;
-        if((contentLen = getContentLength())!= 0){
+        if ((contentLen = getContentLength()) != 0) {
             addHeader("Content-Length", Integer.toString(contentLen));
         }
         for (Map.Entry<String, String> entry : responseHeaders.entrySet()) {
@@ -195,7 +196,7 @@ public class ResponseImpl implements Response {
         StringBuilder s = new StringBuilder();
         s.append(statusLine);
         s.append(headersAsString);
-        if(getContentType() != null && this.content == null) {
+        if (getContentType() != null && this.content == null) {
             throw new Exception("Content is null");
         }
         s.append(content);

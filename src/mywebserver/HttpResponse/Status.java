@@ -5,7 +5,7 @@ public enum Status {
     SWITCHING_PROTOCOLS(101, "Switching protocols"),
     OK(200, "OK"),
     CREATED(201, "Created"),
-    ACCEPTED(202,"Accepted"),
+    ACCEPTED(202, "Accepted"),
     NON_AUTHORITATIVE(203, "Non-Authoritative"),
     NO_CONTENT(204, "No Content"),
     RESET_CONTENT(205, "Reset Content"),
@@ -44,19 +44,23 @@ public enum Status {
     HTTP_VERSION_NOT_SUPPORTED(505, "HTTP Version Not Supported");
     private final int code;
     private final String description;
-    Status(int code, String description){
+
+    Status(int code, String description) {
         this.code = code;
         this.description = description;
     }
-    int getCode(){
+
+    int getCode() {
         return this.code;
     }
-    String getDescription(){
+
+    String getDescription() {
         return this.description;
     }
-    public static Status getStatusWithCode(int code){
-        for (Status stat:values()) {
-            if(code == stat.getCode()){
+
+    public static Status getStatusWithCode(int code) {
+        for (Status stat : values()) {
+            if (code == stat.getCode()) {
                 return stat;
             }
         }
