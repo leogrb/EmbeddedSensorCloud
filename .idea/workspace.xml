@@ -3,21 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/MIMETypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/MIMETypes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginStatic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginStatic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpRequest/RequestImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpRequest/RequestImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Serverthread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Serverthread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/HttpRequest/RequestImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpRequest/RequestImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/HttpResponse/ResponseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpResponse/ResponseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/HttpResponse/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpResponse/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/MIMETypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/MIMETypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginStatic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/Serverthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Serverthread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/UrlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/UrlImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

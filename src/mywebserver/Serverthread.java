@@ -43,11 +43,14 @@ public class Serverthread implements Runnable {
             if (score != 0) {
                 resp = handleRequest.handle(request);
             }
-            resp.send(out);
+            if(resp!=null){
+                resp.send(out);
+            }
         } catch (IOException e) {
             System.err.println();
         } finally {
             try {
+                out.flush();
                 out.close();
                 in.close();
                 socket.close();

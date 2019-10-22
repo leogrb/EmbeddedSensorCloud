@@ -22,19 +22,21 @@ public class RequestImpl implements Request {
     }
 
     public void parseInitLine() throws IOException {
-        if (bufreader.ready()) {
-            String temp = bufreader.readLine();
-            requestparams = temp.split("[ ]"); // get first line -> 3 params
-        }
+        String temp;
+        // to avoid nullpointer exception
+        while ((temp = bufreader.readLine()) == null){ }
+        requestparams = temp.split("[ ]"); // get first line -> 3 params
     }
 
     public void parseHeader() throws IOException {
         header = new HashMap<String, String>();
         String templine;
         String pairs[];
-        while ((templine = bufreader.readLine()) != null && !templine.isEmpty()) { // read until request body if existing
-            pairs = templine.split(": ", 2);
-            header.put(pairs[0].toLowerCase(), pairs[1]); // lowerCase for getHeaders()
+        if(bufreader != null) {
+            while ((templine = bufreader.readLine()) != null && !templine.isEmpty()) { // read until request body if existing
+                pairs = templine.split(": ", 2);
+                header.put(pairs[0].toLowerCase(), pairs[1]); // lowerCase for getHeaders()
+            }
         }
     }
 
