@@ -42,6 +42,7 @@ public class PluginStatic implements Plugin {
     @Override
     public Response handle(Request req) {
         resp = new ResponseImpl();
+        boolean validFile = true;
         // construct static file folder
         String folderAbsPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "tmp-static-files";
         final File staticFolder = new File(folderAbsPath);
@@ -55,12 +56,17 @@ public class PluginStatic implements Plugin {
                 fileExt = "html";
             } else {
                 fileName = url.getFileName();
-                fileExt = url.getExtension();
-                fileExt = fileExt.substring(1);
-                filePath = folderRelPath + fileName;
-                requestedFile = new File(filePath);
+                if(fileName == "") {  // fileName with no extension returns ""
+                    validFile = false;
+                }
+                if(validFile) {
+                    fileExt = url.getExtension();
+                    fileExt = fileExt.substring(1);
+                    filePath = folderRelPath + fileName;
+                    requestedFile = new File(filePath);
+                }
             }
-            if (requestedFile.exists() && !requestedFile.isDirectory()) {
+            if (validFile && requestedFile.exists() && !requestedFile.isDirectory()) {
                 resp.setMimeType(fileExt);
                 resp.setContentType(resp.getMimeType());
                 fileStream = new FileInputStream(requestedFile);

@@ -43,8 +43,9 @@ public enum MIMETypes {
     qt("video/quicktime"),
     mov("video/quicktime"),
     avi("video/x-msvideo"),
-    bat("application/x-msdos-program");
-
+    bat("application/x-msdos-program"),
+    css("text/css"),
+    js("text/javascript");
     private String contentType;
 
     MIMETypes(String contentType) {

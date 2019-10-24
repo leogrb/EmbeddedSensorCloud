@@ -1,0 +1,96 @@
+* {
+    margin:0;
+    padding:0;
+}
+.section {
+    margin-top: 5.5em;
+
+}
+#logname{
+    margin-right: 1em;
+    padding-right: 1em;
+}
+
+.active {
+    color: #4CAF50 !important;
+}
+
+.section_gal{
+    margin: 4em;
+    margin-top: 2em;
+    padding: 3em;
+}
+.headers{
+    margin: 1em;
+    padding: 1em;
+}
+.gh2{
+        border-bottom: 1px solid silver;
+}
+
+.img{
+    margin: 0.1em;
+}
+.upload{
+    margin: 1em;
+    padding: 1em;
+}
+.upload_img{
+ margin: 1em;
+ padding: 1em;
+}
+.navbar{
+    padding: 1em;
+}
+#logname{
+    color: white;
+}
+.dropzone{
+   padding: 2em;
+   width: 300px;
+   height: 300px;
+   border: 2px solid #ccc;
+   text-align: center;
+}
+.dropzone.dragover{
+    width: 300px;
+   height: 300px;
+    border-color:#000;
+     text-align: center;
+    colo:#000;
+}
+.upload_cont{
+    margin: 2em;
+}
+.upload_col{
+    margin: 2em;
+}
+#imgedit{
+
+}
+.createuser{
+    width: 700px;
+    height: auto;
+    margin: auto;
+
+    background:seashell;
+}
+.item{
+    margin: 0.5em;
+    padding: 0.5em;
+}
+.dropdown-menu{
+    width: 300px;
+}
+.nav{
+    list-style: none;
+}
+#opener{
+    margin-top: 2em;
+    text-align: center;
+}
+.opening{
+    background: lightgreen;
+    padding: 1.5em;
+    margin-top: 3em;
+}

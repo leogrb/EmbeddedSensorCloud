@@ -31,7 +31,7 @@ public class UEB5 {
 
 	public String getStaticFileUrl(String s) {
 		// to make the test work
-		String folder = "/tmp-static-files/" + s;
+		String folder = "tmp-static-files/"+ s;
 		return folder;
 	}
 }
