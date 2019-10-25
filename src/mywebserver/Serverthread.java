@@ -9,8 +9,12 @@ import mywebserver.Plugin.PluginManagerImpl;
 import java.net.*;
 import java.io.*;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Serverthread implements Runnable {
+    private final static Logger LOGGER = Logger.getLogger(Main.class.getName());
+
     private Socket socket = null;
     private InputStream in;
     private OutputStream out;
@@ -43,11 +47,11 @@ public class Serverthread implements Runnable {
             if (score != 0) {
                 resp = handleRequest.handle(request);
             }
-            if(resp!=null){
+            if (resp != null) {
                 resp.send(out);
             }
         } catch (IOException e) {
-            System.err.println();
+            LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
         } finally {
             try {
                 out.flush();
@@ -55,6 +59,7 @@ public class Serverthread implements Runnable {
                 in.close();
                 socket.close();
             } catch (IOException e) {
+                LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
             }
         }
     }

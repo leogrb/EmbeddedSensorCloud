@@ -5,10 +5,10 @@ import mywebserver.*;
 
 public class UEB1 {
 
-	public Url getUrl(String path) {
-		return (new UrlImpl(path));
-	}
+    public Url getUrl(String path) {
+        return (new UrlImpl(path));
+    }
 
-	public void helloWorld() {
-	}
+    public void helloWorld() {
+    }
 }

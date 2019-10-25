@@ -11,19 +11,19 @@ import mywebserver.Plugin.PluginManagerImpl;
 
 public class UEB4 {
 
-	public void helloWorld() {
+    public void helloWorld() {
 
-	}
+    }
 
-	public Request getRequest(InputStream inputStream) {
-		return new RequestImpl(inputStream);
-	}
+    public Request getRequest(InputStream inputStream) {
+        return new RequestImpl(inputStream);
+    }
 
-	public Response getResponse() {
-		return new ResponseImpl();
-	}
+    public Response getResponse() {
+        return new ResponseImpl();
+    }
 
-	public PluginManager getPluginManager() {
-		return new PluginManagerImpl();
-	}
+    public PluginManager getPluginManager() {
+        return new PluginManagerImpl();
+    }
 }

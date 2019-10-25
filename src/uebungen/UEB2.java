@@ -11,19 +11,19 @@ import mywebserver.UrlImpl;
 
 public class UEB2 {
 
-	public void helloWorld() {
+    public void helloWorld() {
 
-	}
+    }
 
-	public Url getUrl(String s) {
-		return (new UrlImpl(s));
-	}
+    public Url getUrl(String s) {
+        return (new UrlImpl(s));
+    }
 
-	public Request getRequest(InputStream inputStream) {
-		return (new RequestImpl(inputStream));
-	}
+    public Request getRequest(InputStream inputStream) {
+        return (new RequestImpl(inputStream));
+    }
 
-	public Response getResponse() {
-		return (new ResponseImpl());
-	}
+    public Response getResponse() {
+        return (new ResponseImpl());
+    }
 }

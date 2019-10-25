@@ -11,27 +11,28 @@ import mywebserver.Plugin.PluginManagerImpl;
 import mywebserver.Plugin.PluginStatic;
 
 public class UEB5 {
-	public void helloWorld() {
+    public void helloWorld() {
 
-	}
+    }
 
-	public Request getRequest(InputStream inputStream) {
-		return new RequestImpl(inputStream);
-	}
+    public Request getRequest(InputStream inputStream) {
+        return new RequestImpl(inputStream);
+    }
 
-	public PluginManager getPluginManager() {
-		return (new PluginManagerImpl());
-	}
+    public PluginManager getPluginManager() {
+        return (new PluginManagerImpl());
+    }
 
-	public Plugin getStaticFilePlugin() {
-		return new PluginStatic();
-	}
+    public Plugin getStaticFilePlugin() {
+        return new PluginStatic();
+    }
 
-	public void setStatiFileFolder(String s) { }
+    public void setStatiFileFolder(String s) {
+    }
 
-	public String getStaticFileUrl(String s) {
-		// to make the test work
-		String folder = "tmp-static-files/"+ s;
-		return folder;
-	}
+    public String getStaticFileUrl(String s) {
+        // to make the test work
+        String folder = "tmp-static-files/" + s;
+        return folder;
+    }
 }

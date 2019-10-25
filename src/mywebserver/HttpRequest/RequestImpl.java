@@ -8,8 +8,12 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class RequestImpl implements Request {
+    private final static Logger LOGGER = Logger.getLogger(RequestImpl.class.getName());
+
     private final String methods[] = {"GET", "HEAD", "PUT", "POST", "DELETE", "CONNECT", "OPTIONS", "TRACE"};
     private BufferedReader bufreader;
     private String requestparams[];
@@ -24,7 +28,8 @@ public class RequestImpl implements Request {
     public void parseInitLine() throws IOException {
         String temp;
         // to avoid nullpointer exception
-        while ((temp = bufreader.readLine()) == null){ }
+        while ((temp = bufreader.readLine()) == null) {
+        }
         requestparams = temp.split("[ ]"); // get first line -> 3 params
     }
 
@@ -32,7 +37,7 @@ public class RequestImpl implements Request {
         header = new HashMap<String, String>();
         String templine;
         String pairs[];
-        if(bufreader != null) {
+        if (bufreader != null) {
             while ((templine = bufreader.readLine()) != null && !templine.isEmpty()) { // read until request body if existing
                 pairs = templine.split(": ", 2);
                 header.put(pairs[0].toLowerCase(), pairs[1]); // lowerCase for getHeaders()
@@ -57,7 +62,7 @@ public class RequestImpl implements Request {
                 parseBody();
             }
         } catch (IOException e) {
-            System.err.println("ERROR request stream " + e.getMessage());
+            LOGGER.log(Level.WARNING, "Unexpected error " + e.getMessage(), e);
         }
     }
 

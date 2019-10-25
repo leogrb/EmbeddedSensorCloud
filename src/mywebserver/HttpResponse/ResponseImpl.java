@@ -1,6 +1,7 @@
 package mywebserver.HttpResponse;
 
 import BIF.SWE1.interfaces.Response;
+import mywebserver.HttpRequest.RequestImpl;
 import mywebserver.Plugin.MIMETypes;
 
 import java.io.*;
@@ -8,9 +9,13 @@ import java.lang.reflect.UndeclaredThrowableException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ResponseImpl implements Response {
+    private final static Logger LOGGER = Logger.getLogger(ResponseImpl.class.getName());
+
     private Status status;
     private MIMETypes mimeType;
     private String standardHttp;
@@ -43,7 +48,7 @@ public class ResponseImpl implements Response {
             try {
                 len = this.content.getBytes("UTF-8");
             } catch (UnsupportedEncodingException e) {
-                System.err.println("Encoding error: " + e.getMessage());
+                LOGGER.log(Level.SEVERE, "Unexpected error: " + e.getMessage(), e);
             }
         }
         return len.length;
@@ -59,7 +64,7 @@ public class ResponseImpl implements Response {
         try {
             responseHeaders.put("Content-Type", contentType);
         } catch (IllegalStateException e) {
-            System.err.println("Error setting content type: " + e.getMessage());
+            LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
         }
     }
 
@@ -128,7 +133,7 @@ public class ResponseImpl implements Response {
         try {
             this.content = new String(content, "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            System.err.println("UTF-8 not supported");
+            LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
         }
     }
 
@@ -142,7 +147,7 @@ public class ResponseImpl implements Response {
                 s.append(line);
             }
         } catch (IOException e) {
-            System.err.println("Exception " + e.getMessage());
+            LOGGER.log(Level.WARNING, "Unexpected error " + e.getMessage(), e);
         }
         this.content = s.toString();
     }
@@ -153,7 +158,7 @@ public class ResponseImpl implements Response {
         setHeaderString();
         try {
             setHttpResponse();
-        } catch (Exception e) {
+        } catch (IllegalStateException e) {
             throw new UndeclaredThrowableException(e);
         }
         try {
@@ -161,7 +166,7 @@ public class ResponseImpl implements Response {
                 network.write(httpResponse.getBytes("UTF-8"));
             }
         } catch (IOException e) {
-            System.err.println("Error" + e.getMessage());
+            LOGGER.log(Level.WARNING, "Unexpected error " + e.getMessage(), e);
         }
     }
 
@@ -192,12 +197,12 @@ public class ResponseImpl implements Response {
         headersAsString = s.toString();
     }
 
-    public void setHttpResponse() throws Exception {
+    public void setHttpResponse() throws IllegalStateException {
         StringBuilder s = new StringBuilder();
         s.append(statusLine);
         s.append(headersAsString);
         if (getContentType() != null && this.content == null) {
-            throw new Exception("Content is null");
+            throw new IllegalStateException("Content is null");
         }
         s.append(content);
         httpResponse = s.toString();

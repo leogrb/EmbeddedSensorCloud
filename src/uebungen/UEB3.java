@@ -11,19 +11,19 @@ import mywebserver.HttpResponse.ResponseImpl;
 
 public class UEB3 {
 
-	public void helloWorld() {
+    public void helloWorld() {
 
-	}
+    }
 
-	public Request getRequest(InputStream inputStream) {
-		return new RequestImpl(inputStream);
-	}
+    public Request getRequest(InputStream inputStream) {
+        return new RequestImpl(inputStream);
+    }
 
-	public Response getResponse() {
-		return new ResponseImpl();
-	}
+    public Response getResponse() {
+        return new ResponseImpl();
+    }
 
-	public Plugin getTestPlugin() {
-		return new PluginTest();
-	}
+    public Plugin getTestPlugin() {
+        return new PluginTest();
+    }
 }

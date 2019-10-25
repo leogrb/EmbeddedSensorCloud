@@ -11,8 +11,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PluginStatic implements Plugin {
+    private final static Logger LOGGER = Logger.getLogger(PluginStatic.class.getName());
     private ResponseImpl resp;
     private String filePath;
     private String fileName;
@@ -56,10 +59,10 @@ public class PluginStatic implements Plugin {
                 fileExt = "html";
             } else {
                 fileName = url.getFileName();
-                if(fileName == "") {  // fileName with no extension returns ""
+                if (fileName == "") {  // fileName with no extension returns ""
                     validFile = false;
                 }
-                if(validFile) {
+                if (validFile) {
                     fileExt = url.getExtension();
                     fileExt = fileExt.substring(1);
                     filePath = folderRelPath + fileName;
@@ -83,9 +86,10 @@ public class PluginStatic implements Plugin {
                 resp.setStatusCode(404);
             }
         } catch (IllegalArgumentException e) {
-            System.err.println(e.getStackTrace());
+            LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, "File " + requestedFile.getName() + " not found\n");
+            LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
         }
         return resp;
     }
