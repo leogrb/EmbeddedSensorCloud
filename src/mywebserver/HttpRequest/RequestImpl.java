@@ -46,10 +46,12 @@ public class RequestImpl implements Request {
     }
 
     public void parseBody() throws IOException {
+        // post body not ending with '\n'
         StringBuilder s = new StringBuilder();
-        String line;
-        while ((line = bufreader.readLine()) != null) {
-            s.append(line);
+        char temp;
+        while (bufreader.ready()) {
+        temp = (char)bufreader.read();
+            s.append(temp);
         }
         this.body = s.toString();
     }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToLower</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="myWebServerTheme.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="toLowerScriptReload.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" id="page">
+        <h1 id="header"> MyWebServer </h1>
+    </div>
+    <div class="container" id="menu">
+        <div>
+
+            <h4 id="headerSmall">Enter your text to convert to lower case</h4>
+
+            <form id="_form" class="form" role="form">
+                <div class="form-group item">
+                    <input id="_text" placeholder="Your text" class="form-control form-control-sm" type="text">
+                </div>
+                <div class="form-group item">
+                    <pre id="tolowerres"></pre>
+                </div>
+                <div class="form-group item">
+                    <button type="button" value="continue" name="_textsubmit" class="btn btn-secondary btn-block">Submit
+                    </button>
+                </div>
+                <div id="upload-progress" class="form-group item">
+                    <div class="progress-bar"></div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="toLowerScript.js"></script>
+</body>
+
+</html>

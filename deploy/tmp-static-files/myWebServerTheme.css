@@ -1,0 +1,48 @@
+/* TO LOWER PLUGIN */
+
+html,
+body {
+	height: 100%;
+	background-color: ghostwhite;
+	font-family: 'Raleway', sans-serif;
+}
+
+h4 {
+	font-family: 'Raleway';
+}
+
+#page {
+	background-color: #bbdefb;
+	padding: 1em;
+	border-radius: 2em;
+	margin-bottom: 2em;
+	margin-top: 2em;
+}
+
+#header {
+	text-align: center;
+	margin: 1em;
+}
+
+#menu {
+	border-radius: 1em;
+	padding: 2em;
+	background-color: #eeeeee;
+}
+
+#headerSmall {
+	text-align: center;
+	padding: 0.5em;
+	margin: 0.5em;
+}
+
+.item {
+	padding: 0.3em;
+}
+
+#upload-progress .progress-bar {
+	border-radius: 1em;
+	background-color: #86EDD0;
+	width: 0;
+	height: 50px;
+}
