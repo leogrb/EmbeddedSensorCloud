@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/PostgresConManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/Sensorthread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/Temperature.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/TemperatureDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mywebserver.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mywebserver.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/PostgresConManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/PostgresConManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/PostgresConManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/PostgresConManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Server.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +67,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PostgresConManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mywebserver.Main" />
       <module name="mywebserver" />
@@ -165,17 +171,17 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.PostgresConManager" />
       <item itemvalue="JUnit.UEB1Test and 4 more" />
       <item itemvalue="JUnit.UEB6Test" />
       <item itemvalue="JUnit.UEB6Test.lower_plugin_handle_empty" />
-      <item itemvalue="Application.PostgresConManager" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.PostgresConManager" />
         <item itemvalue="JUnit.UEB6Test" />
         <item itemvalue="JUnit.UEB6Test.lower_plugin_handle_empty" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UEB1Test and 4 more" />
       </list>
     </recent_temporary>
@@ -213,11 +219,6 @@
           <url>file://$USER_HOME$/unit-tests-BIF-SWE1_Java-master/unit-tests-BIF-SWE1_Java-master/BIF-SWE1/Java/BIF-SWE1.UnitTests/src/BIF/SWE1/unittests/UEB4Test.java</url>
           <line>196</line>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mywebserver/PostgresConManager.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

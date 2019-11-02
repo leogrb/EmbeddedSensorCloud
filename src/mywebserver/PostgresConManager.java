@@ -2,6 +2,7 @@ package mywebserver;
 
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -9,6 +10,7 @@ import java.util.logging.Logger;
 public class PostgresConManager {
     private final static Logger LOGGER = Logger.getLogger(PostgresConManager.class.getName());
 
+    private PostgresConManager PCN = null;
     private final String driver = "org.postgresql.Driver";
 
     private final String userName = "postgres";
@@ -17,10 +19,7 @@ public class PostgresConManager {
     private final static int MAX_POOL_SIZE = 5;
     private Vector<Connection> connectionPool = new Vector<>();
 
-    public PostgresConManager()
-    {
-        initialize();
-    }
+    public PostgresConManager() {}
 
     /*public PostgresConManager(String databaseUrl, String userName, String password)
     {
@@ -30,10 +29,18 @@ public class PostgresConManager {
         initialize();
     }
 */
-    private void initialize()
+    public void initialize()
     {
         //Here we can initialize all the information that we need
         initializeConnectionPool();
+    }
+    // make object shareable
+    public synchronized PostgresConManager newPCNInstance(){
+        if(PCN != null){ }
+        else {
+            PCN = new PostgresConManager();
+        }
+        return PCN;
     }
 
     private void initializeConnectionPool()
@@ -108,16 +115,6 @@ public class PostgresConManager {
         for(Connection con : connectionPool){
             LOGGER.log(Level.INFO, "Closing connection " + con);
             con.close();
-        }
-    }
-
-    public static void main(String args[])
-    {
-        PostgresConManager ConManager = new PostgresConManager();
-        try {
-            ConManager.closeConnections();
-        } catch (SQLException e){
-
         }
     }
 }

@@ -6,6 +6,7 @@ import mywebserver.Serverthread;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,16 +16,25 @@ public class Main {
     private static final int port = 80;
 
     public static void main(String[] args) {
+        Server multiserver = null;
         try {
             LOGGER.log(Level.INFO, "Starting Server on port " + port);
-            Server multiserver = new Server(port); //listen on port
+            multiserver = new Server(port); //listen on port
             multiserver.run();
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Failed to open port " + port, e);
-            System.exit(1);
         } catch (NullPointerException e) {
             LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
-            System.exit(1);
+        } catch (SQLException e){
+            LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
+        }
+        finally {
+            try{
+                multiserver.shutdown();
+                LOGGER.log(Level.INFO, "Shuting down server..");
+            } catch (SQLException e){
+                LOGGER.log(Level.WARNING, "SQL error: " + e.getMessage(), e);
+            }
         }
     }
 }
