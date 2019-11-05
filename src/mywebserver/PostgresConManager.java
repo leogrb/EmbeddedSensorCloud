@@ -10,13 +10,13 @@ import java.util.logging.Logger;
 public class PostgresConManager {
     private final static Logger LOGGER = Logger.getLogger(PostgresConManager.class.getName());
 
-    private PostgresConManager PCN = null;
+    private static PostgresConManager PCN = null;
     private final String driver = "org.postgresql.Driver";
 
     private final String userName = "postgres";
     private final String password = "leo";
     private final String url = "jdbc:postgresql://localhost/embeddedsensorcloud";
-    private final static int MAX_POOL_SIZE = 5;
+    private final static int INIT_MAX_POOL_SIZE = 5;
     private Vector<Connection> connectionPool = new Vector<>();
 
     public PostgresConManager() {}
@@ -35,7 +35,7 @@ public class PostgresConManager {
         initializeConnectionPool();
     }
     // make object shareable
-    public synchronized PostgresConManager newPCNInstance(){
+    public static synchronized PostgresConManager newPCNInstance(){
         if(PCN != null){ }
         else {
             PCN = new PostgresConManager();
@@ -58,7 +58,7 @@ public class PostgresConManager {
     {
 
         //Check if pool size is full
-        if(connectionPool.size() < MAX_POOL_SIZE)
+        if(connectionPool.size() < INIT_MAX_POOL_SIZE)
         {
             return false;
         }
@@ -100,6 +100,10 @@ public class PostgresConManager {
         {
             connection = (Connection) connectionPool.firstElement();
             connectionPool.removeElementAt(0);
+        }
+        // if no connection available establish new connection
+        else{
+            connection = createNewConnectionForPool();
         }
         //Giving away the connection from the connection pool
         return connection;

@@ -1,6 +1,7 @@
 package mywebserver;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 import java.net.ServerSocket;
@@ -15,7 +16,9 @@ public class Server {
     private static final Logger LOGGER = Logger.getLogger(Server.class.getName());
 
     private ServerSocket serverSocket;
-    private PostgresConManager postgresConManager;
+    private static PostgresConManager PCN = PostgresConManager.newPCNInstance();
+    private TemperatureDao temperatureDao = new TemperatureDao();
+    private Connection con = null;
 
     public Server(int port) throws IOException {
         serverSocket = new ServerSocket(port); //listen on port
@@ -26,10 +29,11 @@ public class Server {
     }
 
     public void run() throws IOException, NullPointerException, SQLException {
-        /*postgresConManager = postgresConManager.newPCNInstance();
-        postgresConManager.initialize();
-        TemperatureDao temperatureDao = new TemperatureDao();
-        temperatureDao.createTable(postgresConManager.getConnectionFromPool());
+        /*PCN = PostgresConManager.newPCNInstance();
+        PCN.initialize();
+        con = PCN.getConnectionFromPool();
+        temperatureDao.createTable(con);
+        PCN.returnConnectionToPool(con);
         Sensorthread sensor = new Sensorthread();
         Thread threadSens = new Thread(sensor);
         LOGGER.log(Level.INFO, "Starting Sensorreader");

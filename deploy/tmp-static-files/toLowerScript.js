@@ -1,8 +1,6 @@
 $(function () {
     $("button").click(function (event) {
         event.preventDefault();
-        var post_url = "/tolower?tolower_plugin=true";
-        var request_method = "POST";
         var submittedText = $("#_text").val();
         $("#upload-progress .progress-bar").css("width", + 0);
         $.ajax({

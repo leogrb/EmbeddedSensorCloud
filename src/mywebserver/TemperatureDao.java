@@ -1,9 +1,8 @@
 package mywebserver;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.LinkedList;
 
 public class TemperatureDao {
 
@@ -25,6 +24,41 @@ public class TemperatureDao {
         preparedStatement.setDate(1, Date.valueOf(obj.getDate()));
         preparedStatement.setFloat(2, obj.getTemp());
         return preparedStatement.executeUpdate();
+    }
+
+    public LinkedList<Temperature> getAllTemperature(Connection con) throws SQLException {
+        LinkedList<Temperature> data = new LinkedList<>();
+        String preStatement = "SELECT * FROM temperature ORDER BY day ASC";
+        preparedStatement = con.prepareStatement(preStatement);
+        ResultSet rs = preparedStatement.executeQuery();
+        while(rs.next()){
+            Temperature obj = new Temperature();
+            obj.setId(1);
+            obj.setDate(rs.getObject(2, LocalDate.class));
+            obj.setTemp(rs.getFloat(3));
+            data.add(obj);
+        }
+        return data;
+    }
+
+    public LinkedList<Temperature> getTemperatureOfDate(Connection con, LocalDate date) throws SQLException {
+        LinkedList<Temperature> data = new LinkedList<>();
+        String preStatement = "SELECT * FROM temperature WHERE day = ? ORDER BY day ASC";
+        preparedStatement = con.prepareStatement(preStatement);
+        preparedStatement.setObject(1, date);
+        ResultSet rs = preparedStatement.executeQuery();
+        // check if data exists
+        if (!rs.isBeforeFirst() ) {
+            return null;
+        }
+        while(rs.next()){
+            Temperature obj = new Temperature();
+            obj.setId(rs.getInt(1));
+            obj.setDate(rs.getObject(2, LocalDate.class));
+            obj.setTemp(rs.getFloat(3));
+            data.add(obj);
+        }
+        return data;
     }
 
 }

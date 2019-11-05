@@ -3,15 +3,125 @@ package mywebserver.Plugin;
 import BIF.SWE1.interfaces.Plugin;
 import BIF.SWE1.interfaces.Request;
 import BIF.SWE1.interfaces.Response;
+import BIF.SWE1.interfaces.Url;
+import mywebserver.HttpResponse.ResponseImpl;
+import mywebserver.PostgresConManager;
+import mywebserver.Temperature;
+import mywebserver.TemperatureDao;
+import mywebserver.UrlImpl;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PluginTemperature implements Plugin {
+    private Logger LOGGER = Logger.getLogger(PluginTemperature.class.getName());
+
+   private static PostgresConManager PCN = PostgresConManager.newPCNInstance();
+   private TemperatureDao temperatureDao = new TemperatureDao();
+   private Connection con = null;
     @Override
     public float canHandle(Request req) {
-        return 0;
+        return PluginUtil.calcScore(this.getClass(), req);
     }
 
     @Override
     public Response handle(Request req) {
+        try {
+            ResponseImpl resp = new ResponseImpl();
+            Url url = req.getUrl();
+            String contentString = req.getContentString();
+            String[] segments = url.getSegments();
+            con = PCN.getConnectionFromPool();
+            // check which temperature request is given
+            if (segments[segments.length - 1].equals("temperature")) {
+                if (url.getParameterCount() > 0) {
+                    Map<String, String> params = url.getParameter();
+                    LocalDate date = LocalDate.parse(params.get("value"));
+                    LinkedList<Temperature> data = temperatureDao.getTemperatureOfDate(con, date);
+                    if(data != null){
+                        Document xml = createXML(data);
+                        // TODO: xml serialize
+                    }
+                    else{
+                        resp.setContent("Error: No data was found");
+                    }
+                } else {
+                    resp.setContent("Error: Date empty");
+                }
+            }
+        } catch (SQLException e){
+            LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
+        } catch (ParserConfigurationException e){
+            LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
+        }
+        finally {
+            PCN.returnConnectionToPool(con);
+        }
         return null;
     }
+
+
+    public Document createXML(LinkedList<Temperature> data) throws ParserConfigurationException {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        Document xml = db.newDocument();
+        // root
+        Element root = xml.createElement("temperatures");
+        xml.appendChild(root);
+        if(data != null) {
+            for (Temperature t : data) {
+                // temperature element
+                Element c1 = xml.createElement("temperature");
+                // temperature attribute(id)
+                Attr attr = xml.createAttribute("id");
+                attr.setValue(Integer.toString(t.getId()));
+                c1.setAttributeNode(attr);
+                root.appendChild(c1);
+                // temperature element(date)
+                Element c2 = xml.createElement("date");
+                c2.appendChild(xml.createTextNode(t.getDate().toString()));
+                c1.appendChild(c2);
+                //temperature element(temp)
+                Element c3 = xml.createElement("temp");
+                c3.appendChild(xml.createTextNode(Float.toString(t.getTemp())));
+                c1.appendChild(c3);
+            }
+        }
+        /*Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        Result output = new StreamResult(new File("output.xml"));
+        Source input = new DOMSource(xml);
+
+        transformer.transform(input, output);*/
+        return xml;
+    }
+
+    /*public static void main(String[] args) {
+        PluginTemperature p = new PluginTemperature();
+        LinkedList <Temperature> l = new LinkedList<>();
+        Temperature t = new Temperature(LocalDate.now(), 2.0f);
+        t.setId(1);
+        Temperature t2 = new Temperature(LocalDate.now(), 3.0f);
+        t2.setId(2);
+        l.add(t);
+        l.add(t2);
+        try {
+            p.createXML(l);
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+    }*/
 }

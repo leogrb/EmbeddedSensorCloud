@@ -82,6 +82,10 @@ public class UrlImpl implements Url {
             if (rawurl.contains("?")) {
                 String temp = rawurl.split("[?]")[1];
                 String split[] = temp.split("[&]");
+                if(split.length == 0){
+                    String pair[] = temp.split("[=]");
+                    params.put(pair[0], pair[1]);
+                }
                 for (int i = 0; i < split.length; i++) {
                     String pair[] = split[i].split("[=]");
                     params.put(pair[0], pair[1]);

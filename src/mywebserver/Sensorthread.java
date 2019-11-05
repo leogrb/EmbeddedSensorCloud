@@ -9,17 +9,15 @@ import java.util.logging.Logger;
 
 public class Sensorthread implements Runnable{
     private static final Logger LOGGER = Logger.getLogger(Sensorthread.class.getName());
-    private Connection con;
-    private PostgresConManager conManager;
+    private Connection con = null;
+    private PostgresConManager PCN;
     private TemperatureDao temperatureDao;
     private static final float MINTEMP = -20f;
     private static final float MAXTEMP = 50f;
     @Override
     public void run() {
-        conManager = conManager.newPCNInstance();
-        while((con = conManager.getConnectionFromPool()) == null){
-            LOGGER.log(Level.INFO, "Sensor waiting for DB connection");
-        }
+        PCN = PostgresConManager.newPCNInstance();
+        con = PCN.getConnectionFromPool();
         Random r = new Random();
         temperatureDao = new TemperatureDao();
         // create temperature data
@@ -34,6 +32,8 @@ public class Sensorthread implements Runnable{
                 LOGGER.log(Level.WARNING, "SQL error: " + e.getMessage(), e);
             } catch (InterruptedException e){
                 LOGGER.log(Level.WARNING, "Unexpected error: " + e.getMessage(), e);
+            } finally {
+                PCN.returnConnectionToPool(con);
             }
         }
 
