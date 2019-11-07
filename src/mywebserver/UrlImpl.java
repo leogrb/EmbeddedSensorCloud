@@ -84,11 +84,12 @@ public class UrlImpl implements Url {
                 String split[] = temp.split("[&]");
                 if(split.length == 0){
                     String pair[] = temp.split("[=]");
-                    params.put(pair[0], pair[1]);
                 }
                 for (int i = 0; i < split.length; i++) {
                     String pair[] = split[i].split("[=]");
-                    params.put(pair[0], pair[1]);
+                    if(pair.length > 1) {
+                        params.put(pair[0], pair[1]);
+                    }
                 }
             }
         }

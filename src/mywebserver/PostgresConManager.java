@@ -80,12 +80,10 @@ public class PostgresConManager {
         catch(SQLException e)
         {
             LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
-            return null;
         }
         catch(ClassNotFoundException e)
         {
             LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
-            return null;
         }
 
         return connection;

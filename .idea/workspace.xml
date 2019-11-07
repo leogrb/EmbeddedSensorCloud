@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deploy/tmp-static-files/PluginTemperature.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deploy/tmp-static-files/tempScript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/Months.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/Calculator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/PluginTemperature.html" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/PluginTemperature.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/myWebServerTheme.css" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/myWebServerTheme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/toLowerScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/toLowerScript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Temperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Temperature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/TemperatureDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/tempScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/tempScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/PostgresConManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/PostgresConManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensorthread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensorthread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/UrlImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/UrlImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/PostgresConManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/PostgresConManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/Sensorthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Sensorthread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Temperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Temperature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/TemperatureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/TemperatureDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/UrlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/UrlImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -115,6 +110,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Sensorthread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mywebserver.Sensorthread" />
+      <module name="mywebserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mywebserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UEB6Test" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
@@ -129,26 +137,6 @@
       <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB6Test" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UEB6Test.lower_plugin_handle_empty" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
-      <module name="BIF-SWE1.UnitTests" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BIF.SWE1.unittests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="12" />
-      <option name="PACKAGE_NAME" value="BIF.SWE1.unittests" />
-      <option name="MAIN_CLASS_NAME" value="BIF.SWE1.unittests.UEB6Test" />
-      <option name="METHOD_NAME" value="lower_plugin_handle_empty" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
       <method v="2">
@@ -172,17 +160,17 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.PostgresConManager" />
-      <item itemvalue="JUnit.UEB6Test" />
-      <item itemvalue="JUnit.UEB6Test.lower_plugin_handle_empty" />
       <item itemvalue="Application.PluginTemperature" />
+      <item itemvalue="Application.Sensorthread" />
+      <item itemvalue="JUnit.UEB6Test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Sensorthread" />
         <item itemvalue="Application.PluginTemperature" />
         <item itemvalue="Application.PostgresConManager" />
         <item itemvalue="JUnit.UEB6Test" />
-        <item itemvalue="JUnit.UEB6Test.lower_plugin_handle_empty" />
       </list>
     </recent_temporary>
   </component>
@@ -219,6 +207,16 @@
           <url>file://$USER_HOME$/unit-tests-BIF-SWE1_Java-master/unit-tests-BIF-SWE1_Java-master/BIF-SWE1/Java/BIF-SWE1.UnitTests/src/BIF/SWE1/unittests/UEB4Test.java</url>
           <line>196</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/mywebserver/Serverthread.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -12,22 +12,22 @@ h4 {
 }
 
 #page {
-	background-color: #bbdefb;
-	padding: 1em;
-	border-radius: 2em;
+	background-color: #061725;
+	padding: 0.6em;
 	margin-bottom: 2em;
-	margin-top: 2em;
 }
 
 #header {
+	color: ghostwhite;
 	text-align: center;
 	margin: 1em;
 }
 
 #menu {
+	height: auto;
 	border-radius: 1em;
 	padding: 2em;
-	background-color: #eeeeee;
+	background-color: #cecece;
 }
 
 #headerSmall {
@@ -48,6 +48,8 @@ h4 {
 }
 
 /* TEMPERATURE PLUGIN */
+
+
 /* Removes the clear button from date inputs */
 input[type="date"]::-webkit-clear-button {
     display: none;
@@ -60,26 +62,30 @@ input[type="date"]::-webkit-inner-spin-button {
 
 /* Always display the drop down caret */
 input[type="date"]::-webkit-calendar-picker-indicator {
-    color: #2c3e50;
+    color: #111111;
 }
 
 /* A few custom styles for date inputs */
 input[type="date"] {
     appearance: none;
     -webkit-appearance: none;
-    color: #95a5a6;
+    color: #8b2f97;
     font-family: "Helvetica", arial, sans-serif;
     font-size: 18px;
-    border:1px solid #ecf0f1;
-    background:#ecf0f1;
+    border:1px solid #202020;
+    background:#dadada;
     padding:5px;
     display: inline-block !important;
     visibility: visible !important;
 }
 
 input[type="date"], focus {
-    color: #95a5a6;
+    color: #202020;
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
+}
+
+#temp_table{
+	border-radius: 0.5em;
 }
