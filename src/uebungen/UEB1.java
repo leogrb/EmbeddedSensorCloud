@@ -1,7 +1,7 @@
 package uebungen;
 
 import BIF.SWE1.interfaces.Url;
-import mywebserver.*;
+import mywebserver.URL.UrlImpl;
 
 public class UEB1 {
 

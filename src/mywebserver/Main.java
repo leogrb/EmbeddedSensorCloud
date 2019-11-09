@@ -1,11 +1,8 @@
 package mywebserver;
 
-import mywebserver.Server;
-import mywebserver.Serverthread;
+import mywebserver.MultiServer.Server;
 
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,14 +22,13 @@ public class Main {
             LOGGER.log(Level.SEVERE, "Failed to open port " + port, e);
         } catch (NullPointerException e) {
             LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
-        } catch (SQLException e){
+        } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
-        }
-        finally {
-            try{
+        } finally {
+            try {
                 multiserver.shutdown();
                 LOGGER.log(Level.INFO, "Shuting down server..");
-            } catch (SQLException e){
+            } catch (SQLException e) {
                 LOGGER.log(Level.WARNING, "SQL error: " + e.getMessage(), e);
             }
         }

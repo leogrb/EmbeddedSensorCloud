@@ -1,4 +1,6 @@
-package mywebserver;
+package mywebserver.DAO;
+
+import mywebserver.Temperature;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -26,12 +28,13 @@ public class TemperatureDao {
         return preparedStatement.executeUpdate();
     }
 
+    //limit 50 for testing
     public LinkedList<Temperature> getAllTemperature(Connection con) throws SQLException {
         LinkedList<Temperature> data = new LinkedList<>();
-        String preStatement = "SELECT * FROM temperature ORDER BY day ASC";
+        String preStatement = "SELECT * FROM temperature ORDER BY day ASC LIMIT 50";
         preparedStatement = con.prepareStatement(preStatement);
         ResultSet rs = preparedStatement.executeQuery();
-        while(rs.next()){
+        while (rs.next()) {
             Temperature obj = new Temperature();
             obj.setId(1);
             obj.setDate(rs.getObject(2, LocalDate.class));
@@ -48,10 +51,10 @@ public class TemperatureDao {
         preparedStatement.setObject(1, date);
         ResultSet rs = preparedStatement.executeQuery();
         // check if data exists
-        if (!rs.isBeforeFirst() ) {
+        if (!rs.isBeforeFirst()) {
             return null;
         }
-        while(rs.next()){
+        while (rs.next()) {
             Temperature obj = new Temperature();
             obj.setId(rs.getInt(1));
             obj.setDate(rs.getObject(2, LocalDate.class));

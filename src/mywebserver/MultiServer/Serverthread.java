@@ -1,9 +1,9 @@
-package mywebserver;
+package mywebserver.MultiServer;
 
 import BIF.SWE1.interfaces.Plugin;
 import BIF.SWE1.interfaces.Response;
 import mywebserver.HttpRequest.RequestImpl;
-import mywebserver.HttpResponse.ResponseImpl;
+import mywebserver.Main;
 import mywebserver.Plugin.PluginManagerImpl;
 
 import java.net.*;

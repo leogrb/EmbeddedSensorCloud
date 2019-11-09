@@ -1,4 +1,8 @@
-package mywebserver;
+package mywebserver.Sensor;
+
+import mywebserver.DAO.PostgresConManager;
+import mywebserver.DAO.TemperatureDao;
+import mywebserver.Temperature;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -7,7 +11,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Sensorthread implements Runnable{
+public class Sensorthread implements Runnable {
     private static final Logger LOGGER = Logger.getLogger(Sensorthread.class.getName());
     private Connection con = null;
     private PostgresConManager PCN;
@@ -18,9 +22,10 @@ public class Sensorthread implements Runnable{
     private LocalDate cur;
     private boolean isTestData = true;
     private long numYears = 10;
+
     @Override
     public void run() {
-         cur = LocalDate.now();
+        cur = LocalDate.now();
         PCN = PostgresConManager.newPCNInstance();
         con = PCN.getConnectionFromPool();
         r = new Random();
@@ -34,17 +39,17 @@ public class Sensorthread implements Runnable{
                 temperatureDao.insertTemp(con, createRandomTempObj(cur));
                 Thread.sleep(10000);
             }
-        }  catch(SQLException e){
+        } catch (SQLException e) {
             LOGGER.log(Level.WARNING, "SQL error: " + e.getMessage(), e);
-        } catch(InterruptedException e){
+        } catch (InterruptedException e) {
             LOGGER.log(Level.WARNING, "Unexpected error: " + e.getMessage(), e);
-        } finally{
+        } finally {
             PCN.returnConnectionToPool(con);
         }
 
     }
 
-    public Temperature createRandomTempObj(LocalDate date){
+    public Temperature createRandomTempObj(LocalDate date) {
         float temp = MINTEMP + r.nextFloat() * (MAXTEMP - MINTEMP);
         Temperature tempObj = new Temperature(date, temp);
         return tempObj;
@@ -54,22 +59,21 @@ public class Sensorthread implements Runnable{
     public void createTestData() throws SQLException {
         int count = 0;
         int idxY = cur.getYear() - (int) numYears;
-        while(idxY <= cur.getYear()){
-            if(idxY != cur.getYear()){
-                for(int idxM = 1; idxM <= Months.getSize(); idxM++){
-                    for(int idxD = 1; idxD <= Months.getnumOfDays(idxM); idxD++){
+        while (idxY <= cur.getYear()) {
+            if (idxY != cur.getYear()) {
+                for (int idxM = 1; idxM <= Months.getSize(); idxM++) {
+                    for (int idxD = 1; idxD <= Months.getnumOfDays(idxM); idxD++) {
                         // create 3 datasets for each day
-                        for(int i = 0; i < 3; i++){
+                        for (int i = 0; i < 3; i++) {
                             temperatureDao.insertTemp(con, createRandomTempObj(LocalDate.of(idxY, idxM, idxD)));
                         }
                     }
                 }
-            }
-            else{
-                for(int idxM = 1; idxM <= Months.getSize() && idxM <= cur.getMonthValue(); idxM++){
-                    for(int idxD = 1; idxD <= Months.getnumOfDays(idxM) && idxD <= cur.getDayOfMonth(); idxD++){
+            } else {
+                for (int idxM = 1; idxM <= Months.getSize() && idxM <= cur.getMonthValue(); idxM++) {
+                    for (int idxD = 1; idxD <= Months.getnumOfDays(idxM) && idxD <= cur.getDayOfMonth(); idxD++) {
                         // create 3 datasets for each day
-                        for(int i = 0; i < 3; i++){
+                        for (int i = 0; i < 3; i++) {
                             temperatureDao.insertTemp(con, createRandomTempObj(LocalDate.of(idxY, idxM, idxD)));
                         }
                     }

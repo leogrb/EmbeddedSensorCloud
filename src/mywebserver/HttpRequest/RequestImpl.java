@@ -2,7 +2,7 @@ package mywebserver.HttpRequest;
 
 import BIF.SWE1.interfaces.Request;
 import BIF.SWE1.interfaces.Url;
-import mywebserver.UrlImpl;
+import mywebserver.URL.UrlImpl;
 
 import java.io.*;
 import java.util.HashMap;
@@ -50,7 +50,7 @@ public class RequestImpl implements Request {
         StringBuilder s = new StringBuilder();
         char temp;
         while (bufreader.ready()) {
-        temp = (char)bufreader.read();
+            temp = (char) bufreader.read();
             s.append(temp);
         }
         this.body = s.toString();

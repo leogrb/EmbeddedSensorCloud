@@ -2,47 +2,70 @@
 <html lang="de">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>ToLower</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="myWebServerTheme.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="toLowerScriptReload.js"></script>
 </head>
 
 <body>
-    <div class="container-fluid" id="page">
-        <h1 id="header"> MyWebServer </h1>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">MyWebServer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=" .navbar-collapse"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="PluginToLower.html">ToLower</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="PluginTemperature.html">Temperature</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="PluginNavi.html">Navi</a>
+            </li>
+        </ul>
     </div>
-    <div class="container" id="menu">
-        <div>
+</nav>
+<div class="container-fluid" id="page">
+    <h2 id="header_tolower"> Convert Text toLower </h2>
+</div>
+<div class="container" id="menutolower">
 
-            <h4 id="headerSmall">Enter your text to convert to lower case</h4>
+    <h4 id="headerSmall">Enter your text to convert to lower case</h4>
 
-            <form id="_form" class="form" role="form">
-                <div class="form-group item">
-                    <input id="_text" placeholder="Your text" class="form-control form-control-sm" type="text">
-                </div>
-                <div class="form-group item">
-                    <pre id="tolowerres"></pre>
-                </div>
-                <div class="form-group item">
-                    <button type="button" value="continue" name="_textsubmit" class="btn btn-secondary btn-block">Submit
-                    </button>
-                </div>
-                <div id="upload-progress" class="form-group item">
-                    <div class="progress-bar"></div>
-                </div>
-
-            </form>
-
+    <form id="_form" class="form" role="form">
+        <div class="form-group item">
+            <input id="_text" placeholder="Your text" class="form-control form-control-sm" type="text">
+        </div>
+        <div class="form-group item">
+            <pre id="tolowerres"></pre>
+        </div>
+        <div class="form-group item">
+            <button id="tolowersub" type="button" value="continue" name="_textsubmit"
+                    class="btn btn-outline-dark btn-block">Submit
+            </button>
+        </div>
+        <div id="upload-progress" class="form-group item">
+            <div class="progress-bar"></div>
         </div>
 
-    </div>
+    </form>
 
-    <script src="toLowerScript.js"></script>
+</div>
+
+</div>
+
+<script src="toLowerScript.js"></script>
 </body>
 
 </html>

@@ -1,13 +1,8 @@
 package mywebserver.Plugin;
 
 import BIF.SWE1.interfaces.Request;
-import mywebserver.HttpRequest.RequestImpl;
-import mywebserver.UrlImpl;
 
-import java.io.*;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Arrays;
 
 public class PluginUtil {
     public static float calcScore(Class pluginClass, Request req) {

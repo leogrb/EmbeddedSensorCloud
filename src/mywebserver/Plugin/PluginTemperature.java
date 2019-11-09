@@ -5,10 +5,9 @@ import BIF.SWE1.interfaces.Request;
 import BIF.SWE1.interfaces.Response;
 import BIF.SWE1.interfaces.Url;
 import mywebserver.HttpResponse.ResponseImpl;
-import mywebserver.PostgresConManager;
+import mywebserver.DAO.PostgresConManager;
 import mywebserver.Temperature;
-import mywebserver.TemperatureDao;
-import mywebserver.UrlImpl;
+import mywebserver.DAO.TemperatureDao;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -17,7 +16,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -26,7 +24,6 @@ import java.io.StringWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.logging.Level;
@@ -38,10 +35,19 @@ public class PluginTemperature implements Plugin {
     private static PostgresConManager PCN = PostgresConManager.newPCNInstance();
     private TemperatureDao temperatureDao = new TemperatureDao();
     private Connection con = null;
+    private LinkedList<Temperature> data = null;
 
     @Override
     public float canHandle(Request req) {
-        return PluginUtil.calcScore(this.getClass(), req);
+        float score = PluginUtil.calcScore(this.getClass(), req);
+        String[] segments = req.getUrl().getSegments();
+        for (String s : segments) {
+            if (s.equals("temperature") || s.equals("GetTemperature")) {
+                score += 0.5f;
+            }
+        }
+        return score;
+
     }
 
     @Override
@@ -53,21 +59,30 @@ public class PluginTemperature implements Plugin {
         con = PCN.getConnectionFromPool();
         // check which temperature request is given
         try {
-            if (segments[segments.length - 1].substring(0, 11).equals("temperature")) {
-                if (url.getParameterCount() > 0) {
-                    Map<String, String> params = url.getParameter();
-                    LocalDate date = LocalDate.parse(params.get("value"));
-                    LinkedList<Temperature> data = temperatureDao.getTemperatureOfDate(con, date);
-                    if (data != null) {
-                        Document xml = createXML(data);
-                        resp.setContent(transformXML(xml));
+            if (segments.length > 3) {
+                if (segments[segments.length - 4].equals("GetTemperature")) {
+                    String date = segments[segments.length - 3] + "-" + segments[segments.length - 2] + "-" + segments[segments.length - 1];
+                    LocalDate reqDate = LocalDate.parse(date);
+                    data = temperatureDao.getTemperatureOfDate(con, reqDate);
+                }
+            } else if (segments.length == 1) {
+                if (segments[segments.length - 1].substring(0, 11).equals("temperature")) {
+                    if (url.getParameterCount() > 0) {
+                        Map<String, String> params = url.getParameter();
+                        LocalDate date = LocalDate.parse(params.get("value"));
+                        data = temperatureDao.getTemperatureOfDate(con, date);
                     } else {
-                        resp.setContent("Error: No data was found");
+                        // TODO: load default data, check date
+                        data = temperatureDao.getAllTemperature(con);
                     }
-                } else {
-                    resp.setContent("Error: Date empty");
                 }
             }
+            Document xml = createXML(data);
+            resp.setContent(transformXML(xml));
+            resp.setContentType("application/xml");
+             /*else {
+                resp.setContent("Error: No data was found at that date");
+            }*/
         } catch (SQLException e) {
             LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
         } catch (ParserConfigurationException e) {
@@ -82,7 +97,6 @@ public class PluginTemperature implements Plugin {
                 e.printStackTrace();
             }
         }
-        resp.setContentType("text/plain");
         resp.setStatusCode(200);
         return resp;
     }

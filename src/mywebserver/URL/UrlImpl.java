@@ -1,4 +1,4 @@
-package mywebserver;
+package mywebserver.URL;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -82,12 +82,12 @@ public class UrlImpl implements Url {
             if (rawurl.contains("?")) {
                 String temp = rawurl.split("[?]")[1];
                 String split[] = temp.split("[&]");
-                if(split.length == 0){
+                if (split.length == 0) {
                     String pair[] = temp.split("[=]");
                 }
                 for (int i = 0; i < split.length; i++) {
                     String pair[] = split[i].split("[=]");
-                    if(pair.length > 1) {
+                    if (pair.length > 1) {
                         params.put(pair[0], pair[1]);
                     }
                 }

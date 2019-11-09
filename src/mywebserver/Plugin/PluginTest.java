@@ -4,9 +4,7 @@ import BIF.SWE1.interfaces.Plugin;
 import BIF.SWE1.interfaces.Request;
 import BIF.SWE1.interfaces.Response;
 import BIF.SWE1.interfaces.Url;
-import mywebserver.HttpRequest.RequestImpl;
 import mywebserver.HttpResponse.ResponseImpl;
-import mywebserver.UrlImpl;
 
 public class PluginTest implements Plugin {
     @Override

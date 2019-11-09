@@ -8,30 +8,35 @@ public class Temperature {
     private LocalDate date;
     private float temp;
 
-    public Temperature(LocalDate date, float temp){
+    public Temperature(LocalDate date, float temp) {
         this.date = date;
         this.temp = temp;
     }
 
-    public Temperature(){}
+    public Temperature() {
+    }
 
-    public int getId(){return this.id;}
+    public int getId() {
+        return this.id;
+    }
 
-    public float getTemp(){
+    public float getTemp() {
         return this.temp;
     }
 
-    public LocalDate getDate(){
+    public LocalDate getDate() {
         return this.date;
     }
 
-    public void setId(int id){this.id = id;}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setDate(LocalDate date){
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public void setTemp(float temp){
+    public void setTemp(float temp) {
         this.temp = temp;
     }
 }

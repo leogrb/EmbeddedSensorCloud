@@ -1,5 +1,5 @@
 $(function () {
-    $("button").click(function (event) {
+    $("#tolowersub").click(function (event) {
         event.preventDefault();
         var submittedText = $("#_text").val();
         $("#upload-progress .progress-bar").css("width", + 0);

@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/Months.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/PluginTemperature.html" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/PluginTemperature.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/PluginToLower.html" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/PluginToLower.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/myWebServerTheme.css" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/myWebServerTheme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/tempScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/tempScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/toLowerScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/toLowerScript.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/PostgresConManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/PostgresConManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensorthread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensorthread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/UrlImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/UrlImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/TemperatureDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/TemperatureDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/HttpRequest/RequestImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpRequest/RequestImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Months.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Sensor/Months.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/PostgresConManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/PostgresConManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Sensorthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Sensorthread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/UrlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/UrlImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/PostgresConManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/DAO/PostgresConManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Sensorthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Sensor/Sensorthread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Serverthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/MultiServer/Serverthread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/TemperatureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/DAO/TemperatureDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/UrlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/URL/UrlImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uebungen/UEB1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uebungen/UEB1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uebungen/UEB2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uebungen/UEB2.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +86,7 @@
       <module name="mywebserver" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="mywebserver.*" />
+          <option name="PATTERN" value="mywebserver.DAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,11 +108,11 @@
       </method>
     </configuration>
     <configuration name="PostgresConManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mywebserver.PostgresConManager" />
+      <option name="MAIN_CLASS_NAME" value="mywebserver.DAO.PostgresConManager" />
       <module name="mywebserver" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="mywebserver.*" />
+          <option name="PATTERN" value="mywebserver.DAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,11 +121,11 @@
       </method>
     </configuration>
     <configuration name="Sensorthread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mywebserver.Sensorthread" />
+      <option name="MAIN_CLASS_NAME" value="mywebserver.Sensor.Sensorthread" />
       <module name="mywebserver" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="mywebserver.*" />
+          <option name="PATTERN" value="mywebserver.DAO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -207,16 +217,6 @@
           <url>file://$USER_HOME$/unit-tests-BIF-SWE1_Java-master/unit-tests-BIF-SWE1_Java-master/BIF-SWE1/Java/BIF-SWE1.UnitTests/src/BIF/SWE1/unittests/UEB4Test.java</url>
           <line>196</line>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mywebserver/Serverthread.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

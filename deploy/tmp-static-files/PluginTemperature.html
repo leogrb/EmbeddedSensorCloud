@@ -12,22 +12,57 @@
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">MyWebServer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=" .navbar-collapse"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="PluginToLower.html">ToLower</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="PluginTemperature.html">Temperature</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="PluginNavi.html">Navi</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="container-fluid" id="page">
-    <h1 id="header"> MyWebServer </h1>
+    <h2 id="header"> Temperature Data </h2>
 </div>
-<div class="container" id="menu">
-    <div class="row">
-        <div class="col-md-8">
-            <table id="temp_table" class="table table-hover table-dark">
+<div class="container" id="menutemp">
+    <div class="row small_menu">
+        <div id="table_cont" class="col-md-8">
+            <table id="temp_table" class="table table-hover table-light table-wrapper-scroll-y my-custom-scrollbar">
+                <thead>
+                <tr>
+                    <th class="table_col" scope="col">Entry</th>
+                    <th class="table_col" scope="col">Date</th>
+                    <th class="table_col" scope="col">Temperature [°C]</th>
+                </tr>
+                </thead>
+                <tbody id="table_rows">
+
+                </tbody>
             </table>
         </div>
         <div id="_col" class="col-md-4">
             <form id="_form" class="form" role="form">
                 <div class="form-group item">
-                    Pick your date: <input id="_date" type="date" name="temp_date">
+                    <label id="templabel">Pick a date:</label> <input id="_date" type="date" name="temp_date">
                 </div>
                 <div class="form-group item">
-                    <button type="button" value="continue" name="_datesubmit" class="btn btn-secondary btn-block">Submit
+                    <button id="button_date" type="button" value="continue" name="_datesubmit"
+                            class="btn btn-outline-dark btn-block">
+                        Load Data
                     </button>
                 </div>
             </form>

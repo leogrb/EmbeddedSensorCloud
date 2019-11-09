@@ -7,7 +7,7 @@ import BIF.SWE1.interfaces.Response;
 import BIF.SWE1.interfaces.Url;
 import mywebserver.HttpRequest.RequestImpl;
 import mywebserver.HttpResponse.ResponseImpl;
-import mywebserver.UrlImpl;
+import mywebserver.URL.UrlImpl;
 
 public class UEB2 {
 

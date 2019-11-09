@@ -1,15 +1,14 @@
-package mywebserver;
+package mywebserver.MultiServer;
+
+import mywebserver.DAO.PostgresConManager;
+import mywebserver.DAO.TemperatureDao;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Scanner;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.lang.Exception;
-import java.lang.String;
 import java.lang.Thread;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Server {

@@ -1,4 +1,4 @@
-package mywebserver;
+package mywebserver.Sensor;
 
 public enum Months {
     JAN(1, 31),
@@ -17,18 +17,18 @@ public enum Months {
     private int numOfDays;
     private static final int size = Months.values().length;
 
-    Months(int idx, int numOfDays){
+    Months(int idx, int numOfDays) {
         this.idx = idx;
         this.numOfDays = numOfDays;
     }
 
-    public static int getSize(){
+    public static int getSize() {
         return size;
     }
 
-    public static int getnumOfDays(int idx){
-        for (Months m : Months.values()){
-            if(m.idx == idx){
+    public static int getnumOfDays(int idx) {
+        for (Months m : Months.values()) {
+            if (m.idx == idx) {
                 return m.numOfDays;
             }
         }
