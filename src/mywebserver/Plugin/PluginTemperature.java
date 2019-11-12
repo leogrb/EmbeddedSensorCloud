@@ -8,6 +8,8 @@ import mywebserver.HttpResponse.ResponseImpl;
 import mywebserver.DAO.PostgresConManager;
 import mywebserver.Temperature;
 import mywebserver.DAO.TemperatureDao;
+import mywebserver.XML.XMLBuilder;
+import mywebserver.XML.XMLTransformer;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -24,6 +26,7 @@ import java.io.StringWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.logging.Level;
@@ -57,28 +60,45 @@ public class PluginTemperature implements Plugin {
         String contentString = req.getContentString();
         String[] segments = url.getSegments();
         con = PCN.getConnectionFromPool();
+        String date = "0000-00-00";
+        boolean isValidDate = false;
         // check which temperature request is given
         try {
             if (segments.length > 3) {
                 if (segments[segments.length - 4].equals("GetTemperature")) {
-                    String date = segments[segments.length - 3] + "-" + segments[segments.length - 2] + "-" + segments[segments.length - 1];
-                    LocalDate reqDate = LocalDate.parse(date);
-                    data = temperatureDao.getTemperatureOfDate(con, reqDate);
+                    date = segments[segments.length - 3] + "-" + segments[segments.length - 2] + "-" + segments[segments.length - 1];
+                    LocalDate reqDate = parseDate(date);
+                    if (reqDate != null) {
+                        isValidDate = true;
+                        data = temperatureDao.getTemperatureOfDate(con, reqDate);
+                    }
                 }
             } else if (segments.length == 1) {
                 if (segments[segments.length - 1].substring(0, 11).equals("temperature")) {
                     if (url.getParameterCount() > 0) {
                         Map<String, String> params = url.getParameter();
-                        LocalDate date = LocalDate.parse(params.get("value"));
-                        data = temperatureDao.getTemperatureOfDate(con, date);
+                        date = params.get("value");
+                        LocalDate reqDate = parseDate(date);
+                        if (reqDate != null) {
+                            isValidDate = true;
+                            data = temperatureDao.getTemperatureOfDate(con, reqDate);
+                        }
                     } else {
                         // TODO: load default data, check date
+                        isValidDate = true;
                         data = temperatureDao.getAllTemperature(con);
                     }
                 }
             }
-            Document xml = createXML(data);
-            resp.setContent(transformXML(xml));
+            Document xml;
+            if (data != null) {
+                xml = XMLBuilder.createValidXML(data);
+            } else if (!isValidDate) {
+                xml = XMLBuilder.createInvalidDateXML(date);
+            } else {
+                xml = XMLBuilder.createNotFoundXML(date);
+            }
+            resp.setContent(XMLTransformer.transformXML(xml));
             resp.setContentType("application/xml");
              /*else {
                 resp.setContent("Error: No data was found at that date");
@@ -101,57 +121,15 @@ public class PluginTemperature implements Plugin {
         return resp;
     }
 
-
-    public Document createXML(LinkedList<Temperature> data) throws ParserConfigurationException {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        Document xml = db.newDocument();
-        // root
-        Element root = xml.createElement("temperatures");
-        xml.appendChild(root);
-        if (data != null) {
-            for (Temperature t : data) {
-                // temperature element
-                Element c1 = xml.createElement("temperature");
-                // temperature attribute(id)
-                Attr attr = xml.createAttribute("id");
-                attr.setValue(Integer.toString(t.getId()));
-                c1.setAttributeNode(attr);
-                root.appendChild(c1);
-                // temperature element(date)
-                Element c2 = xml.createElement("date");
-                c2.appendChild(xml.createTextNode(t.getDate().toString()));
-                c1.appendChild(c2);
-                //temperature element(temp)
-                Element c3 = xml.createElement("temp");
-                c3.appendChild(xml.createTextNode(Float.toString(t.getTemp())));
-                c1.appendChild(c3);
-            }
+    public LocalDate parseDate(String date) {
+        LocalDate Date = null;
+        try {
+            Date = LocalDate.parse(date);
+        } catch (DateTimeParseException e) {
+            LOGGER.log(Level.WARNING, "Selected Date is invalid");
+        } finally {
+            return Date;
         }
-        /*Transformer transformer = TransformerFactory.newInstance().newTransformer();
-        Result output = new StreamResult(new File("output.xml"));
-        Source input = new DOMSource(xml);
-
-        transformer.transform(input, output);*/
-        return xml;
-    }
-
-    public String transformXML(Document doc) throws TransformerException {
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer transformer;
-        transformer = tf.newTransformer();
-
-        // Uncomment if you do not require XML declaration
-        // transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-
-        //A character stream that collects its output in a string buffer,
-        //which can then be used to construct a string.
-        StringWriter writer = new StringWriter();
-
-        //transform document to string
-        transformer.transform(new DOMSource(doc), new StreamResult(writer));
-
-        return writer.getBuffer().toString();
     }
     /*public static void main(String[] args) {
         PluginTemperature p = new PluginTemperature();

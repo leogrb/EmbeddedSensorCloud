@@ -26,7 +26,14 @@ $(function () {
                 count++;
             });
             if (count === 1) {
-                document.getElementById("dateres").innerHTML = "<h4> No data found </h4>";
+            var type = $(response).find('Error');
+            console.log(type.attr('type'));
+                if(type.attr('type') === "InvalidDate"){
+                    document.getElementById("dateres").innerHTML = "<h4>Invalid Date </h4>";
+                }
+                else{
+                    document.getElementById("dateres").innerHTML = "<h4> No data found </h4>";
+                }
             }
             else {
                 document.getElementById("dateres").innerHTML = "<h4> Data loaded </h4>";
