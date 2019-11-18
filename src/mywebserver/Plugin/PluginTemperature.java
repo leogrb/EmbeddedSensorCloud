@@ -45,7 +45,7 @@ public class PluginTemperature implements Plugin {
         float score = PluginUtil.calcScore(this.getClass(), req);
         String[] segments = req.getUrl().getSegments();
         for (String s : segments) {
-            if (s.equals("temperature") || s.equals("GetTemperature")) {
+            if (s.equals("GetTemperature")) {
                 score += 0.5f;
             }
         }
@@ -59,7 +59,7 @@ public class PluginTemperature implements Plugin {
         Url url = req.getUrl();
         String contentString = req.getContentString();
         String[] segments = url.getSegments();
-        con = PCN.getConnectionFromPool();
+        con = PCN.getConnectionFromPool()   ;
         String date = "0000-00-00";
         boolean isValidDate = false;
         // check which temperature request is given
@@ -84,12 +84,12 @@ public class PluginTemperature implements Plugin {
                             data = temperatureDao.getTemperatureOfDate(con, reqDate);
                         }
                     } else {
-                        // TODO: load default data, check date
                         isValidDate = true;
                         data = temperatureDao.getAllTemperature(con);
                     }
                 }
             }
+            //TODO: Invalid Get Request aka GetTemperature/2019
             Document xml;
             if (data != null) {
                 xml = XMLBuilder.createValidXML(data);
@@ -100,6 +100,7 @@ public class PluginTemperature implements Plugin {
             }
             resp.setContent(XMLTransformer.transformXML(xml));
             resp.setContentType("application/xml");
+            resp.setStatusCode(200);
              /*else {
                 resp.setContent("Error: No data was found at that date");
             }*/
@@ -117,7 +118,6 @@ public class PluginTemperature implements Plugin {
                 e.printStackTrace();
             }
         }
-        resp.setStatusCode(200);
         return resp;
     }
 

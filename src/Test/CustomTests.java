@@ -9,9 +9,11 @@ import mywebserver.DAO.PostgresConManager;
 import mywebserver.DAO.TemperatureDao;
 import mywebserver.HttpRequest.RequestImpl;
 import mywebserver.Plugin.PluginStatic;
+import mywebserver.Plugin.PluginTemperature;
 import mywebserver.Plugin.PluginToLower;
 import mywebserver.Sensor.Sensorthread;
 import mywebserver.XML.XMLBuilder;
+import mywebserver.XML.XMLTransformer;
 import org.junit.*;
 
 import mywebserver.*;
@@ -190,5 +192,68 @@ public class CustomTests {
         assertNotNull(e);
         assertTrue(e.getAttributes().getNamedItem("type").getNodeValue().equals("DateNotFound"));
     }
+
+    @Test
+    public void XMLTransformer_XMLtoString() throws Exception {
+        LinkedList<Temperature> data = new LinkedList<>();
+        Temperature temp = new Temperature(LocalDate.now(), 99.9f);
+        assertNotNull(temp);
+        temp.setId(1);
+        data.add(temp);
+        String xmlString = XMLTransformer.transformXML(XMLBuilder.createValidXML(data));
+        assertNotNull("String is null", xmlString);
+        assertTrue("Incorrect string", xmlString.equals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><temperatures><temperature id=\"1\"><date>2019-11-14</date><temp>99.9</temp></temperature></temperatures>"));
+    }
+
+    @Test
+    public void PluginTemperature_handle_valid_REST() throws Exception {
+        Plugin p = new PluginTemperature();
+        String resturl = "localhost/GetTemperature/2019/05/11";
+        Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
+        Response res = p.handle(req);
+        String b = getBody(res).toString();
+        assertTrue("application/xml expected", res.getContentType().equals("application/xml"));
+        assertTrue("<temperatures> expected", b.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><temperatures>"));
+        assertTrue("Date not found", b.contains("<date>2019-05-11</date>"));
+    }
+
+    @Test
+    public void PluginTemperature_handle_invalidDate_REST() throws Exception {
+        Plugin p = new PluginTemperature();
+        String resturl = "localhost/GetTemperature/2019000/05/11";
+        Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
+        Response res = p.handle(req);
+        String b = getBody(res).toString();
+        assertTrue("application/xml expected", res.getContentType().equals("application/xml"));
+        assertTrue("<Error> expected", b.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Error type=\"InvalidDate\">"));
+        assertTrue("Response text expected", b.contains("<Response>Requested Date is invalid. Valid DateFormat is: yyyy-mm-dd</Response>"));
+    }
+
+    @Test
+    public void PluginTemperature_handle_validDate() throws Exception {
+        Plugin p = new PluginTemperature();
+        String resturl = "/temperature?value=2019-05-11";
+        Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
+        Response res = p.handle(req);
+        String b = getBody(res).toString();
+        System.out.println(b);
+        assertTrue("application/xml expected", res.getContentType().equals("application/xml"));
+        assertTrue("<temperatures> expected", b.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><temperatures>"));
+        assertTrue("Date not found", b.contains("<date>2019-05-11</date>"));
+    }
+
+    @Test
+    public void PluginTemperature_handle_invalidDate() throws Exception {
+        Plugin p = new PluginTemperature();
+        String resturl = "/temperature?value=200019-05-11";
+        Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
+        Response res = p.handle(req);
+        String b = getBody(res).toString();
+        System.out.println(b);
+        assertTrue("application/xml expected", res.getContentType().equals("application/xml"));
+        assertTrue("<Error> expected", b.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Error type=\"InvalidDate\">"));
+        assertTrue("Response text expected", b.contains("<Response>Requested Date is invalid. Valid DateFormat is: yyyy-mm-dd</Response>"));
+    }
+
 
 }

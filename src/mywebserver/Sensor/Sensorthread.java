@@ -71,7 +71,10 @@ public class Sensorthread implements Runnable {
                 }
             } else {
                 for (int idxM = 1; idxM <= Months.getSize() && idxM <= cur.getMonthValue(); idxM++) {
-                    for (int idxD = 1; idxD <= Months.getnumOfDays(idxM) && idxD <= cur.getDayOfMonth(); idxD++) {
+                    for (int idxD = 1; idxD <= Months.getnumOfDays(idxM); idxD++) {
+                        if(idxD == cur.getDayOfMonth() && idxM == cur.getMonthValue()){
+                            break;
+                        }
                         // create 3 datasets for each day
                         for (int i = 0; i < 3; i++) {
                             temperatureDao.insertTemp(con, createRandomTempObj(LocalDate.of(idxY, idxM, idxD)));

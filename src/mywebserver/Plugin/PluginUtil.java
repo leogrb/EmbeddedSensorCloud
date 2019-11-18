@@ -1,6 +1,9 @@
 package mywebserver.Plugin;
 
+import BIF.SWE1.interfaces.Plugin;
 import BIF.SWE1.interfaces.Request;
+import BIF.SWE1.interfaces.Response;
+import mywebserver.HttpResponse.ResponseImpl;
 
 import java.util.Map;
 
