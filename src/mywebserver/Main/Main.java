@@ -1,5 +1,6 @@
-package mywebserver;
+package mywebserver.Main;
 
+import mywebserver.Config;
 import mywebserver.MultiServer.Server;
 
 import java.io.IOException;
@@ -10,10 +11,13 @@ import java.util.logging.Logger;
 public class Main {
     private final static Logger LOGGER = Logger.getLogger(Main.class.getName());
 
-    private static final int port = 80;
+    private static int port;
 
     public static void main(String[] args) {
         Server multiserver = null;
+        Config config = Config.newInstance();
+        config.initialize();
+        port = Integer.parseInt(config.getProp("port"));
         try {
             LOGGER.log(Level.INFO, "Starting Server on port " + port);
             multiserver = new Server(port); //listen on port

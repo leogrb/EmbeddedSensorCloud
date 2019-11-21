@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/mywebserver/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/CustomTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/Test/CustomTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/RequestHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/Test/RequestHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/PostgresConManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/PostgresConManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/TemperatureDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/TemperatureDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/MultiServer/Serverthread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/MultiServer/Serverthread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensor/Sensorthread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensor/Sensorthread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/CustomTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/CustomTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginStatic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/DAO/PostgresConManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/DAO/PostgresConManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/DAO/TemperatureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/DAO/TemperatureDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/MultiServer/Serverthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/MultiServer/Serverthread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Sensor/Sensorthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Sensor/Sensorthread.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,13 +69,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CustomTests.PluginTemperature_handle_valid_REST">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mywebserver.Main" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Config" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mywebserver.Config" />
       <module name="mywebserver" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="mywebserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mywebserver.Main.Main" />
+      <module name="mywebserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mywebserver.Main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,26 +136,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomTests.PluginTemperature_handle_invalidDate_REST" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
-      <module name="BIF-SWE1.UnitTests" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="12" />
-      <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.CustomTests" />
-      <option name="METHOD_NAME" value="PluginTemperature_handle_invalidDate_REST" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CustomTests.PluginTemperature_handle_valid_REST" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
@@ -178,18 +172,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Config" />
       <item itemvalue="JUnit.CustomTests.PluginTemperature_handle_invalidDate" />
-      <item itemvalue="JUnit.CustomTests.PluginTemperature_handle_invalidDate_REST" />
       <item itemvalue="JUnit.CustomTests.PluginTemperature_handle_valid_REST" />
       <item itemvalue="JUnit.CustomTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Config" />
         <item itemvalue="JUnit.CustomTests.PluginTemperature_handle_valid_REST" />
         <item itemvalue="JUnit.CustomTests" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CustomTests.PluginTemperature_handle_invalidDate" />
-        <item itemvalue="JUnit.CustomTests.PluginTemperature_handle_invalidDate_REST" />
       </list>
     </recent_temporary>
   </component>

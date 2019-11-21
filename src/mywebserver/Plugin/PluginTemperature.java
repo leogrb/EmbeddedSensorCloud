@@ -39,6 +39,7 @@ public class PluginTemperature implements Plugin {
     private TemperatureDao temperatureDao = new TemperatureDao();
     private Connection con = null;
     private LinkedList<Temperature> data = null;
+    private ResponseImpl resp = null;
 
     @Override
     public float canHandle(Request req) {
@@ -55,25 +56,32 @@ public class PluginTemperature implements Plugin {
 
     @Override
     public Response handle(Request req) {
-        ResponseImpl resp = new ResponseImpl();
+        resp = new ResponseImpl();
         Url url = req.getUrl();
         String contentString = req.getContentString();
         String[] segments = url.getSegments();
         con = PCN.getConnectionFromPool()   ;
         String date = "0000-00-00";
         boolean isValidDate = false;
+        boolean badRequest = false;
         // check which temperature request is given
         try {
-            if (segments.length > 3) {
-                if (segments[segments.length - 4].equals("GetTemperature")) {
-                    date = segments[segments.length - 3] + "-" + segments[segments.length - 2] + "-" + segments[segments.length - 1];
-                    LocalDate reqDate = parseDate(date);
-                    if (reqDate != null) {
-                        isValidDate = true;
-                        data = temperatureDao.getTemperatureOfDate(con, reqDate);
+            if (segments.length > 1) {
+                if (segments.length > 3) {
+                    if (segments[segments.length - 4].equals("GetTemperature")) {
+                        date = segments[segments.length - 3] + "-" + segments[segments.length - 2] + "-" + segments[segments.length - 1];
+                        LocalDate reqDate = parseDate(date);
+                        if (reqDate != null) {
+                            isValidDate = true;
+                            data = temperatureDao.getTemperatureOfDate(con, reqDate);
+                        }
                     }
                 }
-            } else if (segments.length == 1) {
+                else{
+                    badRequest = true;
+                }
+            }
+            else if (segments.length == 1) {
                 if (segments[segments.length - 1].substring(0, 11).equals("temperature")) {
                     if (url.getParameterCount() > 0) {
                         Map<String, String> params = url.getParameter();
@@ -88,22 +96,27 @@ public class PluginTemperature implements Plugin {
                         data = temperatureDao.getAllTemperature(con);
                     }
                 }
+                else {
+                    badRequest = true;
+                }
             }
             //TODO: Invalid Get Request aka GetTemperature/2019
             Document xml;
-            if (data != null) {
-                xml = XMLBuilder.createValidXML(data);
-            } else if (!isValidDate) {
-                xml = XMLBuilder.createInvalidDateXML(date);
-            } else {
-                xml = XMLBuilder.createNotFoundXML(date);
+            if(!badRequest) {
+                if (data != null) {
+                    xml = XMLBuilder.createValidXML(data);
+                } else if (!isValidDate) {
+                    xml = XMLBuilder.createInvalidDateXML(date);
+                } else {
+                    xml = XMLBuilder.createNotFoundXML(date);
+                }
+                resp.setContent(XMLTransformer.transformXML(xml));
+                resp.setContentType("application/xml");
+                resp.setStatusCode(200);
             }
-            resp.setContent(XMLTransformer.transformXML(xml));
-            resp.setContentType("application/xml");
-            resp.setStatusCode(200);
-             /*else {
-                resp.setContent("Error: No data was found at that date");
-            }*/
+             else {
+                handleBadRequest();
+            }
         } catch (SQLException e) {
             LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
         } catch (ParserConfigurationException e) {
@@ -130,6 +143,12 @@ public class PluginTemperature implements Plugin {
         } finally {
             return Date;
         }
+    }
+
+    public void handleBadRequest(){
+        resp.setContent("Bad Request 400");
+        resp.setContentType("text/html");
+        resp.setStatusCode(400);
     }
     /*public static void main(String[] args) {
         PluginTemperature p = new PluginTemperature();

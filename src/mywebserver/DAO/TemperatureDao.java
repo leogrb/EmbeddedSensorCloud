@@ -36,7 +36,7 @@ public class TemperatureDao {
         ResultSet rs = preparedStatement.executeQuery();
         while (rs.next()) {
             Temperature obj = new Temperature();
-            obj.setId(1);
+            obj.setId(rs.getInt(1));
             obj.setDate(rs.getObject(2, LocalDate.class));
             obj.setTemp(rs.getFloat(3));
             data.add(obj);

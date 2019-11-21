@@ -3,7 +3,7 @@ package mywebserver.MultiServer;
 import BIF.SWE1.interfaces.Plugin;
 import BIF.SWE1.interfaces.Response;
 import mywebserver.HttpRequest.RequestImpl;
-import mywebserver.Main;
+import mywebserver.Main.Main;
 import mywebserver.Plugin.PluginManagerImpl;
 
 import java.net.*;

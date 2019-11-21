@@ -1,6 +1,8 @@
 package mywebserver.DAO;
 
 
+import mywebserver.Config;
+
 import java.sql.*;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -10,25 +12,21 @@ public class PostgresConManager {
     private final static Logger LOGGER = Logger.getLogger(PostgresConManager.class.getName());
 
     private static PostgresConManager PCN = null;
-    private final String driver = "org.postgresql.Driver";
-
-    private final String userName = "postgres";
-    private final String password = "leo";
+    private String driver = null;
     private final String url = "jdbc:postgresql://localhost/embeddedsensorcloud";
+    private String userName = null;
+    private String password = null;
     private final static int INIT_MAX_POOL_SIZE = 5;
     private Vector<Connection> connectionPool = new Vector<>();
 
-    public PostgresConManager() {
+
+    private PostgresConManager()
+    {
+        this.userName = Config.newInstance().getProp("username");
+        this.password = Config.newInstance().getProp("password");
+        this.driver = Config.newInstance().getProp("driver");
     }
 
-    /*public PostgresConManager(String databaseUrl, String userName, String password)
-    {
-        this.url = databaseUrl;
-        this.userName = userName;
-        this.password = password;
-        initialize();
-    }
-*/
     public void initialize() {
         //Here we can initialize all the information that we need
         initializeConnectionPool();
