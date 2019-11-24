@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/PostgresConManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/PostgresConManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/TemperatureDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/TemperatureDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/MultiServer/Serverthread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/MultiServer/Serverthread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/404err.html" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/404err.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/PluginTemperature.html" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/PluginTemperature.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/DAO/PostgresConManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/DAO/PostgresConManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/DAO/TemperatureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/DAO/TemperatureDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/MultiServer/Serverthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/MultiServer/Serverthread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginToLower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginToLower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginToLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginToLower.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

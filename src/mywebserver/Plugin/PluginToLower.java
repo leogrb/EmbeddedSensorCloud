@@ -18,7 +18,13 @@ public class PluginToLower implements Plugin {
 
     @Override
     public float canHandle(Request req) {
-        return PluginUtil.calcScore(this.getClass(), req);
+        float score = PluginUtil.calcScore(this.getClass(), req);
+        String[] segments = req.getUrl().getSegments();
+        if (segments.length != 1) {
+            return 0f;
+        } else {
+            return score;
+        }
     }
 
     @Override
