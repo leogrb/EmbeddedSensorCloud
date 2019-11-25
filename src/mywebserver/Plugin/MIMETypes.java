@@ -45,7 +45,8 @@ public enum MIMETypes {
     avi("video/x-msvideo"),
     bat("application/x-msdos-program"),
     css("text/css"),
-    js("text/javascript");
+    js("text/javascript"),
+    xml("application/xml");
     private String contentType;
 
     MIMETypes(String contentType) {

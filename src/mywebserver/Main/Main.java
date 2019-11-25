@@ -34,6 +34,8 @@ public class Main {
                 LOGGER.log(Level.INFO, "Shuting down server..");
             } catch (SQLException e) {
                 LOGGER.log(Level.WARNING, "SQL error: " + e.getMessage(), e);
+            } catch (IOException e){
+                LOGGER.log(Level.WARNING, "Error closing server socket: " + e.getMessage(), e);
             }
         }
     }

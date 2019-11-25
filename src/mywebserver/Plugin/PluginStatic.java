@@ -7,10 +7,7 @@ import BIF.SWE1.interfaces.Url;
 import mywebserver.HttpResponse.ResponseImpl;
 import mywebserver.HttpResponse.Status;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -90,6 +87,14 @@ public class PluginStatic implements Plugin {
         } catch (FileNotFoundException e) {
             LOGGER.log(Level.INFO, "File " + requestedFile.getName() + " not found\n");
             LOGGER.log(Level.SEVERE, "Unexpected Error: " + e.getMessage(), e);
+        } finally{
+            if(fileStream != null){
+                try {
+                    fileStream.close();
+                } catch (IOException e) {
+                    LOGGER.log(Level.WARNING, "Error closing filestream: " + e.getMessage(), e);
+                }
+            }
         }
         return resp;
     }

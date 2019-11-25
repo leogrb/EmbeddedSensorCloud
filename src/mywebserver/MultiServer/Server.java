@@ -23,8 +23,11 @@ public class Server {
         serverSocket = new ServerSocket(port); //listen on port
     }
 
-    public void shutdown() throws SQLException {
+    public void shutdown() throws SQLException, IOException {
         //postgresConManager.closeConnections();
+        if(serverSocket != null){
+            serverSocket.close();
+        }
     }
 
     public void run() throws IOException, NullPointerException, SQLException {

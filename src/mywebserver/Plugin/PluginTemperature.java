@@ -116,8 +116,9 @@ public class PluginTemperature implements Plugin {
             } else {
                 xml = XMLBuilder.createNotFoundXML(date);
             }
+            resp.setMimeType("xml");
+            resp.setContentType(resp.getMimeType());
             resp.setContent(XMLTransformer.transformXML(xml));
-            resp.setContentType("application/xml");
             resp.setStatusCode(200);
         } catch (SQLException e) {
             LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);

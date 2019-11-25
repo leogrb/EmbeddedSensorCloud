@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/404err.html" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/404err.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/PluginTemperature.html" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/PluginTemperature.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginToLower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginToLower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/MultiServer/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/MultiServer/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/MIMETypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/MIMETypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginStatic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginToLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginToLower.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
