@@ -44,6 +44,11 @@ public class Sensorthread implements Runnable {
         } catch (InterruptedException e) {
             LOGGER.log(Level.WARNING, "Unexpected error: " + e.getMessage(), e);
         } finally {
+            try {
+                temperatureDao.closeStatement();
+            } catch (SQLException e) {
+                LOGGER.log(Level.WARNING, "SQL error: " + e.getMessage(), e);
+            }
             PCN.returnConnectionToPool(con);
         }
 

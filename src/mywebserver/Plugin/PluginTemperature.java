@@ -131,7 +131,12 @@ public class PluginTemperature implements Plugin {
             try {
                 PCN.closeConnections();
             } catch (SQLException e) {
-                e.printStackTrace();
+                LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
+            }
+            try {
+                temperatureDao.closeStatement();
+            } catch (SQLException e) {
+                LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
             }
         }
         return resp;

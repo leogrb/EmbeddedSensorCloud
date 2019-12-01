@@ -28,6 +28,7 @@ public class Server {
         if(serverSocket != null){
             serverSocket.close();
         }
+        temperatureDao.closeStatement();
     }
 
     public void run() throws IOException, NullPointerException, SQLException {

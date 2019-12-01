@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="Osmosis 0.47">
+  <node id="15079903" version="10" timestamp="2019-07-28T14:34:36Z" uid="1864709" user="Linie29" changeset="72739686" lat="48.1969666" lon="16.2876675">
+    <tag k="addr:city" v="Wien"/>
+    <tag k="addr:country" v="AT"/>
+    <tag k="addr:housenumber" v="180"/>
+    <tag k="addr:postcode" v="1140"/>
+    <tag k="addr:street" v="Hütteldorfer Straße"/>
+    <tag k="atm" v="yes"/>
+    <tag k="brand" v="Eurospar"/>
+    <tag k="brand:wikidata" v="Q12309283"/>
+    <tag k="brand:wikipedia" v="da:Eurospar"/>
+    <tag k="name" v="Eurospar"/>
+    <tag k="opening_hours" v="Mo-We 07:30-19:30, Th 07:15-19:30, Fr 07:15-20:00, Sa 07:00-18:00"/>
+    <tag k="operator" v="SPAR Österreichische Warenhandels-AG"/>
+    <tag k="payment:cash" v="yes"/>
+    <tag k="payment:debit_cards" v="yes"/>
+    <tag k="shop" v="supermarket"/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
+  <node id="15080180" version="6" timestamp="2015-11-29T13:02:24Z" uid="129531" user="almich" changeset="35645555" lat="48.1977628" lon="16.2989066">
+    <tag k="addr:city" v="Wien"/>
+    <tag k="addr:country" v="AT"/>
+    <tag k="addr:housenumber" v="130B"/>
+    <tag k="addr:postcode" v="1140"/>
+    <tag k="addr:street" v="Hütteldorfer Straße"/>
+    <tag k="name" v="Merkur"/>
+    <tag k="opening_hours" v="Mo-Fr 07:40-20:00; Sa 07:40-18:00"/>
+    <tag k="shop" v="supermarket"/>
+    <tag k="website" v="https://www.merkurmarkt.at/"/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
+  <node id="15080249" version="15" timestamp="2019-06-08T12:26:01Z" uid="4453208" user="Johannes M" changeset="71050060" lat="48.1914344" lon="16.2811981">
+    <tag k="addr:city" v="Wien"/>
+    <tag k="addr:country" v="AT"/>
+    <tag k="addr:housenumber" v="34-36"/>
+    <tag k="addr:postcode" v="1130"/>
+    <tag k="addr:street" v="Mantlergasse"/>
+    <tag k="brand" v="Media Markt"/>
+    <tag k="brand:wikidata" v="Q2381223"/>
+    <tag k="brand:wikipedia" v="en:Media Markt"/>
+    <tag k="name" v="Media Markt"/>
+    <tag k="shop" v="electronics"/>
+    <tag k="website" v="https://www.mediamarkt.at/"/>
+    <tag k="wheelchair" v="yes"/>
+  </node>
+ </osm>

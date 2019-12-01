@@ -64,4 +64,10 @@ public class TemperatureDao {
         return data;
     }
 
+    public void closeStatement() throws SQLException {
+        if(preparedStatement != null) {
+            preparedStatement.close();
+        }
+    }
+
 }

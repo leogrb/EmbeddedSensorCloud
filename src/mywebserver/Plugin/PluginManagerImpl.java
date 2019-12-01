@@ -18,7 +18,7 @@ public class PluginManagerImpl implements PluginManager {
         if (allPlugins != null) {
             allPlugins.add(new PluginTemperature());
             allPlugins.add(new PluginStatic());
-            allPlugins.add(new PluginNavi());
+            allPlugins.add(new PluginNavigation());
             allPlugins.add(new PluginToLower());
         }
     }

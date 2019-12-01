@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ToLower</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="myWebServerTheme.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">MyWebServer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=" .navbar-collapse"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="PluginToLower.html">ToLower</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="PluginTemperature.html">Temperature</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="PluginNavi.html">Navi</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid" id="page">
+    <h2 id="header_tolower">Navigation Plugin </h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" id="menutolower">
+
+            <h4 id="headerSmall">Enter street name</h4>
+
+            <form id="_form" class="form" role="form">
+                <div class="form-group item">
+                    <input id="_text" placeholder="Your text" class="form-control form-control-sm" type="text">
+                </div>
+                <div class="form-group item">
+                    <pre id="navres"></pre>
+                </div>
+                <div class="form-group item">
+                    <button id="navsub" type="button" value="continue" name="_textsubmit"
+                            class="btn btn-outline-dark btn-block">Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <form id="form_new" class="form" role="form">
+                <div class="form-group item">
+                    <button id="nav_new" type="button" value="continue" name="parse_new"
+                            class="btn btn-outline-dark btn-block">Straße neu aufbereiten
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="navScript.js"></script>
+</body>
+
+</html>
