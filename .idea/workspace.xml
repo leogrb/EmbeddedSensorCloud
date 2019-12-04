@@ -2,27 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deploy/tmp-static-files/PluginNavi.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/Navigation/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/Navigation/StreetCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/SAX/NavStreetHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mywebserver/SAX/XMLParserSAX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/TemperatureDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/TemperatureDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/MultiServer/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/MultiServer/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/MIMETypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/MIMETypes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginManagerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginNavi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginStatic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginStatic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensor/Sensorthread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensor/Sensorthread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/DAO/TemperatureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/DAO/TemperatureDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/MultiServer/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/MultiServer/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginNavi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginNavigation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Sensor/Sensorthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Sensor/Sensorthread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/navScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/navScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Navigation/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Navigation/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Navigation/StreetCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Navigation/StreetCollection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginNavigation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginNavigation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/NavStreetHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/NavStreetHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/XMLParserSAX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/XMLParserSAX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginNavigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/SAX/XMLParserSAX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/SAX/XMLParserSAX.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,9 +165,9 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Config" />
+      <item itemvalue="Application.XMLParserSAX" />
       <item itemvalue="JUnit.CustomTests.PluginTemperature_handle_valid_REST" />
       <item itemvalue="JUnit.CustomTests" />
-      <item itemvalue="Application.XMLParserSAX" />
     </list>
     <recent_temporary>
       <list>

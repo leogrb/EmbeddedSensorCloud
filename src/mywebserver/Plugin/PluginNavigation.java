@@ -24,7 +24,8 @@ public class PluginNavigation implements Plugin {
     private StreetCollection streetCollection;
     private String contentString;
     private Response resp;
-    boolean isValid = false;
+    private boolean isValid = false;
+
     @Override
     public float canHandle(Request req) {
         float score = PluginUtil.calcScore(this.getClass(), req);
@@ -36,22 +37,34 @@ public class PluginNavigation implements Plugin {
         resp = new ResponseImpl();
         contentString = req.getContentString();
         streetCollection = StreetCollection.newStreetCollectionInstance();
+        boolean isInitialized = true;
         try {
             if (contentString != null) {
                 contentString = URLDecoder.decode(contentString, StandardCharsets.UTF_8.name());
-                String[] bodyVal = contentString.split("=");
-                if (bodyVal.length > 1) {
-                    if(!streetCollection.isInitialized()) {
-                        streetCollection = XMLParserSAX.parseXML();
+                String[] bodyVal = contentString.split("&");
+                String[] value = bodyVal[0].split("=");
+                String load = bodyVal[1].split("=")[1];
+                boolean isLoad = load.equals("True");
+                if (!isLoad) {
+                    if (value.length > 1) {
+                        if (streetCollection.isInitialized()) {
+                            LinkedList<String> cities = streetCollection.getCitiesOfStreet(value[1]);
+                            if (cities != null) {
+                                isValid = true;
+                                prepareResponse(cities, value[1]);
+                            }
+                        } else if (!streetCollection.isInitialized()) {
+                            resp.setContent("Error: Straßen sind nicht verfügbar");
+                            isInitialized = false;
+                        }
                     }
-                    LinkedList<String> cities = streetCollection.getCitiesOfStreet(bodyVal[1]);
-                    if (cities != null) {
-                        isValid = true;
-                        prepareResponse(cities, bodyVal[1]);
-                    }
+                } else if (isLoad) {
+                    isInitialized = false;
+                    streetCollection = XMLParserSAX.parseXML();
+                    resp.setContent("Straßen neu aufbereitet");
                 }
             }
-            if(!isValid){
+            if (!isValid && isInitialized) {
                 resp.setContent("Not found: Keine Städte gefunden");
             }
         } catch (UnsupportedEncodingException e) {
@@ -68,11 +81,11 @@ public class PluginNavigation implements Plugin {
         return resp;
     }
 
-    public void prepareResponse(LinkedList<String> cities, String street){
+    public void prepareResponse(LinkedList<String> cities, String street) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Street: " + street);
         stringBuilder.append(System.getProperty("line.separator"));
-        for(String s : cities){
+        for (String s : cities) {
             stringBuilder.append(s);
             stringBuilder.append(System.getProperty("line.separator"));
         }
