@@ -33,11 +33,11 @@ public class XMLParserSAX {
                 System.out.println(a);
             }
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, "Unexpected Exception", e.getMessage());
         } catch (SAXException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, "Unexpected Exception", e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, "Unexpected Exception", e.getMessage());
         }
     }
 }

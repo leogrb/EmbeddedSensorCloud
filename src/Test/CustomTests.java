@@ -37,17 +37,7 @@ public class CustomTests {
     All @AfterClass methods are guaranteed to run even if a BeforeClass method throws an exception.
     The @AfterClass methods declared in superclasses will be run after those of the current class.
     */
-    @BeforeClass
-    public static void setUpBeforeClass() {
-        PostgresConManager PCN = PostgresConManager.newPCNInstance();
-        PCN.initialize();
-    }
 
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-        PostgresConManager PCN = PostgresConManager.newPCNInstance();
-        PCN.closeConnections();
-    }
 
     private StringBuilder getBody(Response resp) throws UnsupportedEncodingException, IOException {
         StringBuilder body = new StringBuilder();
@@ -67,64 +57,7 @@ public class CustomTests {
         return body;
     }
 
-    @Test
-    public void PCN_should_return_connections() {
-        PostgresConManager PCN = PostgresConManager.newPCNInstance();
-        Connection con = PCN.getConnectionFromPool();
-        Connection con2 = PCN.getConnectionFromPool();
-        Connection con3 = PCN.getConnectionFromPool();
-        Connection con4 = PCN.getConnectionFromPool();
-        Connection con5 = PCN.getConnectionFromPool();
 
-        assertTrue(con instanceof Connection);
-        assertNotNull("PCN returned null", con);
-        assertTrue(con2 instanceof Connection);
-        assertNotNull("PCN returned null", con2);
-        assertTrue(con3 instanceof Connection);
-        assertNotNull("PCN returned null", con3);
-        assertTrue(con4 instanceof Connection);
-        assertNotNull("PCN returned null", con4);
-        assertTrue(con5 instanceof Connection);
-        assertNotNull("PCN returned null", con5);
-
-        PCN.returnConnectionToPool(con);
-        PCN.returnConnectionToPool(con2);
-        PCN.returnConnectionToPool(con3);
-        PCN.returnConnectionToPool(con4);
-        PCN.returnConnectionToPool(con5);
-    }
-
-    @Test
-    public void TemperatureDao_should_insert_temperature() throws Exception {
-        PostgresConManager PCN = PostgresConManager.newPCNInstance();
-        Connection con = PCN.getConnectionFromPool();
-        assertNotNull("PCN returned null", con);
-        TemperatureDao temperatureDao = new TemperatureDao();
-        temperatureDao.createTable(con);
-        Temperature temp = new Temperature(LocalDate.now(), 99.9f);
-        int res = temperatureDao.insertTemp(con, temp);
-        assertEquals(res, 1);
-        String preStatement = "SELECT temp FROM temperature WHERE day = ? ORDER BY day ASC";
-        PreparedStatement preparedStatement = con.prepareStatement(preStatement);
-        preparedStatement.setObject(1, LocalDate.now());
-        ResultSet rs = preparedStatement.executeQuery();
-        assertTrue("Insert error", rs.isBeforeFirst());
-        rs.next();
-        assertEquals("Insert error", rs.getFloat(1), 99.9f, 0f);
-        PCN.returnConnectionToPool(con);
-    }
-
-    @Test
-    public void TemperatureDao_should_return_50_entries() throws Exception {
-        PostgresConManager PCN = PostgresConManager.newPCNInstance();
-        Connection con = PCN.getConnectionFromPool();
-        assertNotNull("PCN returned null", con);
-        TemperatureDao temperatureDao = new TemperatureDao();
-        temperatureDao.createTable(con);
-        LinkedList<Temperature> data = temperatureDao.getAllTemperature(con);
-        assertTrue("50 entries have to be returned", data.size() == 50);
-        PCN.returnConnectionToPool(con);
-    }
 
     /*@Test
     public void Sensor_should_create_Temperature() throws Exception{
@@ -134,126 +67,5 @@ public class CustomTests {
         assertTrue("Sensor returned Temperature out of range", temp.getTemp() >= -20f && temp.getTemp() <= 50f);
     }
     */
-
-
-    @Test
-    public void PluginStatic_throws_exception() throws Exception {
-        try {
-            InputStream s = RequestHelper.getValidRequestStream("localhost/test");
-            Request req = new RequestImpl(s);
-            Plugin p = new PluginStatic();
-            Response res = p.handle(req);
-        } catch (Exception e) {
-            assertTrue(e.getClass() == FileNotFoundException.class);
-        }
-    }
-
-    @Test
-    public void ToLowerPlugin_should_return_error() throws Exception {
-        InputStream s = RequestHelper.getValidRequestStream("localhost/tolower?tolower_plugin=true", "POST", "");
-        Request req = new RequestImpl(s);
-        Plugin p = new PluginToLower();
-        Response res = p.handle(req);
-        assertTrue("PluginToLower returned wrong response", getBody(res).toString().contains("Not found: Bitte geben Sie einen Text ein\n"));
-    }
-
-    @Test
-    public void XMLBuilder_should_create_validXML() throws Exception {
-        LinkedList<Temperature> data = new LinkedList<>();
-        Temperature temp = new Temperature(LocalDate.now(), 99.9f);
-        assertNotNull(temp);
-        temp.setId(1);
-        data.add(temp);
-        Document xml = XMLBuilder.createValidXML(data);
-        NodeList nl = xml.getElementsByTagName("temperature");
-        Element e = (Element) nl.item(0);
-        assertNotNull(e);
-        assertTrue(e.getAttributes().getNamedItem("id").getNodeValue().equals(Integer.toString(1)));
-        NodeList date = e.getElementsByTagName("date");
-        NodeList t = e.getElementsByTagName("temp");
-        assertTrue(date.item(0).getFirstChild().getTextContent().equals(LocalDate.now().toString()));
-        assertTrue(t.item(0).getFirstChild().getTextContent().equals(Float.toString(99.9f)));
-    }
-
-    @Test
-    public void XMLBuilder_should_create_invalidDateXML() throws Exception {
-        Document xml = XMLBuilder.createInvalidDateXML("202020-12-20");
-        NodeList nl = xml.getElementsByTagName("Error");
-        Element e = (Element) nl.item(0);
-        assertNotNull(e);
-        assertTrue(e.getAttributes().getNamedItem("type").getNodeValue().equals("InvalidDate"));
-    }
-
-    @Test
-    public void XMLBuilder_should_create_notFoundXML() throws Exception {
-        Document xml = XMLBuilder.createNotFoundXML("2020-12-20");
-        NodeList nl = xml.getElementsByTagName("Error");
-        Element e = (Element) nl.item(0);
-        assertNotNull(e);
-        assertTrue(e.getAttributes().getNamedItem("type").getNodeValue().equals("DateNotFound"));
-    }
-
-    @Test
-    public void XMLTransformer_XMLtoString() throws Exception {
-        LinkedList<Temperature> data = new LinkedList<>();
-        Temperature temp = new Temperature(LocalDate.now(), 99.9f);
-        assertNotNull(temp);
-        temp.setId(1);
-        data.add(temp);
-        String xmlString = XMLTransformer.transformXML(XMLBuilder.createValidXML(data));
-        assertNotNull("String is null", xmlString);
-        assertTrue("Incorrect string", xmlString.equals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><temperatures><temperature id=\"1\"><date>2019-11-14</date><temp>99.9</temp></temperature></temperatures>"));
-    }
-
-    @Test
-    public void PluginTemperature_handle_valid_REST() throws Exception {
-        Plugin p = new PluginTemperature();
-        String resturl = "localhost/GetTemperature/2019/05/11";
-        Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
-        Response res = p.handle(req);
-        String b = getBody(res).toString();
-        assertTrue("application/xml expected", res.getContentType().equals("application/xml"));
-        assertTrue("<temperatures> expected", b.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><temperatures>"));
-        assertTrue("Date not found", b.contains("<date>2019-05-11</date>"));
-    }
-
-    @Test
-    public void PluginTemperature_handle_invalidDate_REST() throws Exception {
-        Plugin p = new PluginTemperature();
-        String resturl = "localhost/GetTemperature/2019000/05/11";
-        Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
-        Response res = p.handle(req);
-        String b = getBody(res).toString();
-        assertTrue("application/xml expected", res.getContentType().equals("application/xml"));
-        assertTrue("<Error> expected", b.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Error type=\"InvalidDate\">"));
-        assertTrue("Response text expected", b.contains("<Response>Requested Date is invalid. Valid DateFormat is: yyyy-mm-dd</Response>"));
-    }
-
-    @Test
-    public void PluginTemperature_handle_validDate() throws Exception {
-        Plugin p = new PluginTemperature();
-        String resturl = "/temperature?value=2019-05-11";
-        Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
-        Response res = p.handle(req);
-        String b = getBody(res).toString();
-        System.out.println(b);
-        assertTrue("application/xml expected", res.getContentType().equals("application/xml"));
-        assertTrue("<temperatures> expected", b.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><temperatures>"));
-        assertTrue("Date not found", b.contains("<date>2019-05-11</date>"));
-    }
-
-    @Test
-    public void PluginTemperature_handle_invalidDate() throws Exception {
-        Plugin p = new PluginTemperature();
-        String resturl = "/temperature?value=200019-05-11";
-        Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
-        Response res = p.handle(req);
-        String b = getBody(res).toString();
-        System.out.println(b);
-        assertTrue("application/xml expected", res.getContentType().equals("application/xml"));
-        assertTrue("<Error> expected", b.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Error type=\"InvalidDate\">"));
-        assertTrue("Response text expected", b.contains("<Response>Requested Date is invalid. Valid DateFormat is: yyyy-mm-dd</Response>"));
-    }
-
 
 }
