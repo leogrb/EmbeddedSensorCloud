@@ -3,10 +3,22 @@ package mywebserver.Navigation;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class StreetCollection {
     private static Map<String, LinkedList<String>> StreetColl;
     private static StreetCollection streetCollection = null;
+    private static Lock lock = new ReentrantLock();
+
+    public static synchronized boolean setLock() throws IllegalAccessException {
+        if (lock.tryLock()) return true;
+        else throw new IllegalAccessException("busy"); // if lock is already owned by a thread throw ex
+    }
+
+    public static synchronized void unLock() {
+        lock.unlock();
+    }
 
     public static synchronized StreetCollection newStreetCollectionInstance() {
         if (streetCollection != null) {

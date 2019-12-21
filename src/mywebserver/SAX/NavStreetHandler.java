@@ -13,7 +13,15 @@ public class NavStreetHandler extends DefaultHandler {
     private int attrCount = 0;
     private Node node;
     private boolean isNode;
-    private StreetCollection sColl = StreetCollection.newStreetCollectionInstance();
+    private StreetCollection sColl;
+
+    public NavStreetHandler() throws IllegalAccessException {
+        this.sColl = StreetCollection.newStreetCollectionInstance();
+    }
+
+    public void tryLock() throws IllegalAccessException {
+        sColl.setLock(); // try to lock for parsing
+    }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
@@ -56,6 +64,10 @@ public class NavStreetHandler extends DefaultHandler {
 
     public StreetCollection getsColl() {
         return sColl;
+    }
+
+    public void unLock() {
+        this.sColl.unLock();
     }
 }
 

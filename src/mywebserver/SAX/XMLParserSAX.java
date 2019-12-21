@@ -13,20 +13,30 @@ import java.util.logging.Logger;
 
 public class XMLParserSAX {
     private static Logger LOGGER = Logger.getLogger(XMLParserSAX.class.getName());
+    private static NavStreetHandler handler = null;
 
-    public static StreetCollection parseXML() throws ParserConfigurationException, SAXException, IOException {
+    public static StreetCollection parseXML() throws ParserConfigurationException, SAXException, IOException, IllegalAccessException {
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         String path = Thread.currentThread().getContextClassLoader().getResource("").getPath() + System.getProperty("file.separator") + "resources" + System.getProperty("file.separator") + "data_.xml";
         SAXParser saxParser = saxParserFactory.newSAXParser();
-        NavStreetHandler handler = new NavStreetHandler();
+        handler = new NavStreetHandler();
+        // try to lock collection
+        handler.tryLock();
         LOGGER.log(Level.INFO, "Initializing XML parsing");
         saxParser.parse(new File(path), handler);
         //print employee information
         LOGGER.log(Level.INFO, "XML parsing finished");
+        handler.unLock();
         return handler.getsColl();
     }
 
-    public static void main(String[] args) {
+    public static void releaseLock() {
+        if (handler != null) {
+            handler.unLock();
+        }
+    }
+
+   /* public static void main(String[] args) {
         try {
             StreetCollection s = XMLParserSAX.parseXML();
             for (String a : s.getCitiesOfStreet("Hauptstraße")) {
@@ -39,6 +49,6 @@ public class XMLParserSAX {
         } catch (IOException e) {
             LOGGER.log(Level.WARNING, "Unexpected Exception", e.getMessage());
         }
-    }
+    }*/
 }
 

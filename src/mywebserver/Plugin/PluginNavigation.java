@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class PluginNavigation implements Plugin {
 
     private Logger LOGGER = Logger.getLogger(PluginNavigation.class.getName());
-    private XMLParserSAX parser;
+    private XMLParserSAX parser = null;
     private StreetCollection streetCollection;
     private String contentString;
     private Response resp;
@@ -48,10 +48,15 @@ public class PluginNavigation implements Plugin {
                 if (!isLoad) {
                     if (value.length > 1) {
                         if (streetCollection.isInitialized()) {
-                            LinkedList<String> cities = streetCollection.getCitiesOfStreet(value[1]);
-                            if (cities != null) {
-                                isValid = true;
-                                prepareResponse(cities, value[1]);
+                            // check if lock is owned by another thread
+                            if (streetCollection.setLock()) {
+                                // if not - release it since no parsing here
+                                streetCollection.unLock();
+                                LinkedList<String> cities = streetCollection.getCitiesOfStreet(value[1]);
+                                if (cities != null) {
+                                    isValid = true;
+                                    prepareResponse(cities, value[1]);
+                                }
                             }
                         } else if (!streetCollection.isInitialized()) {
                             resp.setContent("Error: Straßen sind nicht verfügbar");
@@ -61,7 +66,9 @@ public class PluginNavigation implements Plugin {
                 } else if (isLoad) {
                     isInitialized = false;
                     streetCollection = XMLParserSAX.parseXML();
-                    resp.setContent("Straßen neu aufbereitet");
+                    if (streetCollection != null) {
+                        resp.setContent("Straßen neu aufbereitet");
+                    }
                 }
             }
             if (!isValid && isInitialized) {
@@ -75,6 +82,13 @@ public class PluginNavigation implements Plugin {
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            resp.setContent("Warning: Parser is busy right now");
+            resp.setStatusCode(200);
+            return resp;
+        } finally {
+            // try to release a lock
+            if (parser != null) parser.releaseLock();
         }
         resp.setContentType("text/plain");
         resp.setStatusCode(200);

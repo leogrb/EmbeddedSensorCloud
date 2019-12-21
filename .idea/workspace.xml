@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Test/TestMIMETypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestNavigationPlugin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestPluginStatic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestPluginTemperature.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestPluginToLower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestPostgresConManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestStreetCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestTemperatureDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestXMLBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestXMLTransformer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/CustomTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/Test/CustomTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Navigation/StreetCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Navigation/StreetCollection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginNavigation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginNavigation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/NavStreetHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/NavStreetHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/XMLParserSAX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/XMLParserSAX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/CustomTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/CustomTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Navigation/StreetCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Navigation/StreetCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginNavigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/SAX/NavStreetHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/SAX/NavStreetHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/SAX/XMLParserSAX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/SAX/XMLParserSAX.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,7 +68,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestNavigationPlugin.PluginNavigation_should_set_error_response_if_form_empty">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mywebserver.Main.Main" />
       <module name="mywebserver" />
@@ -192,9 +185,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestNavigationPlugin.PluginNavigation_should_set_error_response_if_form_empty" />
         <item itemvalue="JUnit.TestNavigationPlugin.PluginNavigation_should_set_error_response" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestConfig.Config_should_load_properties" />
         <item itemvalue="JUnit.TestMIMETypes.MIMETypes_should_return_MimeType" />
       </list>
