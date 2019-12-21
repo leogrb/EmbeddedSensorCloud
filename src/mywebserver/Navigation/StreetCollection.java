@@ -38,12 +38,10 @@ public class StreetCollection {
         if (StreetColl.containsKey(street)) {
             if (StreetColl.get(street) != null && !StreetColl.get(street).contains(city)) {
                 StreetColl.get(street).add(city);
-                // System.out.println("adding " + city + " to " + street);
             }
         } else {
             StreetColl.put(street, new LinkedList<String>());
             StreetColl.get(street).add(city);
-            // System.out.println("addding " + street +" " + city);
         }
     }
 

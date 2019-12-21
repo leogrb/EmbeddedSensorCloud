@@ -1,6 +1,6 @@
 package mywebserver.Main;
 
-import mywebserver.Config;
+import mywebserver.Properties.Config;
 import mywebserver.MultiServer.Server;
 
 import java.io.IOException;

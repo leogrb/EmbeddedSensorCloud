@@ -11,6 +11,9 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Class representing a http request
+ */
 public class RequestImpl implements Request {
     private final static Logger LOGGER = Logger.getLogger(RequestImpl.class.getName());
 
@@ -20,10 +23,18 @@ public class RequestImpl implements Request {
     private Map<String, String> header;
     private String body;
 
+    /**
+     * Constructs a RequestImpl object with a given InputStream
+     */
     public RequestImpl(InputStream in) {
         bufreader = new BufferedReader(new InputStreamReader(in));
         initParsing();
     }
+
+    /**
+     * Parse parameter of an input stream representing a http request
+     * @throws IOException
+     */
 
     public void parseInitLine() throws IOException {
         String temp;
@@ -32,6 +43,11 @@ public class RequestImpl implements Request {
         }
         requestparams = temp.split("[ ]"); // get first line -> 3 params
     }
+
+    /**
+     * Parse headers of an input stream representing a http request
+     * @throws IOException
+     */
 
     public void parseHeader() throws IOException {
         header = new HashMap<String, String>();
@@ -45,6 +61,10 @@ public class RequestImpl implements Request {
         }
     }
 
+    /**
+     * Parse body of an input stream representing a http request
+     * @throws IOException
+     */
     public void parseBody() throws IOException {
         // post body not ending with '\n'
         StringBuilder s = new StringBuilder();
@@ -56,6 +76,9 @@ public class RequestImpl implements Request {
         this.body = s.toString();
     }
 
+    /**
+     * Initialize the parsing process of an input stream representing a http request
+     */
     public void initParsing() {
         try {
             parseInitLine();
@@ -68,6 +91,10 @@ public class RequestImpl implements Request {
         }
     }
 
+    /**
+     * Check if parsed parameters are supported and valid concerning http request rules
+     * @return True if parameters are valid and complete
+     */
     @Override
     public boolean isValid() {
         if (requestparams != null && requestparams.length != 3) { // method path httpversion
@@ -80,6 +107,9 @@ public class RequestImpl implements Request {
         return false;
     }
 
+    /**
+     * Get the specified http request method, e.g. GET, POST
+     */
     @Override
     public String getMethod() {
         if (isValid()) {

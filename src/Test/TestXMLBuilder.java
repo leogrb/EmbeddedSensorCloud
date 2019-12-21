@@ -1,6 +1,6 @@
 package Test;
 
-import mywebserver.Temperature;
+import mywebserver.Temperature.Temperature;
 import mywebserver.XML.XMLBuilder;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

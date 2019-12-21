@@ -50,11 +50,11 @@ public enum Status {
         this.description = description;
     }
 
-    int getCode() {
+    public int getCode() {
         return this.code;
     }
 
-    String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 

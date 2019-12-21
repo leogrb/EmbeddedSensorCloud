@@ -2,7 +2,7 @@ package mywebserver.Sensor;
 
 import mywebserver.DAO.PostgresConManager;
 import mywebserver.DAO.TemperatureDao;
-import mywebserver.Temperature;
+import mywebserver.Temperature.Temperature;
 
 import java.sql.Connection;
 import java.sql.SQLException;

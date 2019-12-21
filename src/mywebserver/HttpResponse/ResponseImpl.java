@@ -25,6 +25,9 @@ public class ResponseImpl implements Response {
     private String headersAsString;
     private String httpResponse;
 
+    /**
+     * Construct a ResponseImpl object
+     */
     public ResponseImpl() {
         responseHeaders.put("Server", "BIF-SWE1-Server");
         responseHeaders.put("Date", LocalDateTime.now().toString());
@@ -37,11 +40,6 @@ public class ResponseImpl implements Response {
     }
 
     @Override
-    /*
-    The Content-Length entity-header field indicates the size of the entity-body,
-    in decimal number of OCTETs, sent to the recipient or, in the case of the HEAD method,
-    the size of the entity-body that would have been sent had the request been a GET.
-     */
     public int getContentLength() {
         byte len[] = new byte[0];
         if (this.content != null) {

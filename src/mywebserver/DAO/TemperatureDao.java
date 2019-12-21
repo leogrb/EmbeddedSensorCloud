@@ -1,15 +1,24 @@
 package mywebserver.DAO;
 
-import mywebserver.Temperature;
+import mywebserver.Temperature.Temperature;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
+/**
+ * Class for providing access to the underlying database.
+ */
 public class TemperatureDao {
 
     private PreparedStatement preparedStatement;
 
+    /**
+     * Create a table for Temperature data storage
+     *
+     * @param con The connection for database access
+     * @throws SQLException
+     */
     public void createTable(Connection con) throws SQLException {
         String preStatement = "CREATE TABLE IF NOT EXISTS temperature(\n" +
                 "id SERIAL PRIMARY KEY,\n" +
@@ -20,6 +29,14 @@ public class TemperatureDao {
         preparedStatement.execute();
     }
 
+    /**
+     * Returns the PostgresConManager instance
+     *
+     * @param con The connection for database access
+     * @param obj The temperature object which attributes should be stored
+     * @return the row count for SQL Data Manipulation Language (DML)
+     * statements or 0 for SQL statements that return nothing
+     */
     public int insertTemp(Connection con, Temperature obj) throws SQLException {
         String preStatement = "INSERT INTO temperature (day, temp) VALUES (?, ?)";
         preparedStatement = con.prepareStatement(preStatement);
@@ -28,10 +45,15 @@ public class TemperatureDao {
         return preparedStatement.executeUpdate();
     }
 
-    //limit 50 for testing
+    /**
+     * Get all temperature data stored in the 'temperature' table
+     *
+     * @param con The connection for database access
+     * @return A list of temperature objects, representing data stored in the 'temperature' table
+     */
     public LinkedList<Temperature> getAllTemperature(Connection con) throws SQLException {
         LinkedList<Temperature> data = new LinkedList<>();
-        String preStatement = "SELECT * FROM temperature ORDER BY day ASC LIMIT 50";
+        String preStatement = "SELECT * FROM temperature ORDER BY day ASC";
         preparedStatement = con.prepareStatement(preStatement);
         ResultSet rs = preparedStatement.executeQuery();
         while (rs.next()) {
@@ -44,6 +66,13 @@ public class TemperatureDao {
         return data;
     }
 
+    /**
+     * Get all temperature data of a specific day stored in the 'temperature' table
+     *
+     * @param con  The connection for database access
+     * @param date The date to be used for querying specific data
+     * @return A list of temperature objects, representing data stored in the 'temperature' table
+     */
     public LinkedList<Temperature> getTemperatureOfDate(Connection con, LocalDate date) throws SQLException {
         LinkedList<Temperature> data = new LinkedList<>();
         String preStatement = "SELECT * FROM temperature WHERE day = ? ORDER BY day ASC";
@@ -64,8 +93,13 @@ public class TemperatureDao {
         return data;
     }
 
+    /**
+     * Close a prepared Statement
+     *
+     * @throws SQLException
+     */
     public void closeStatement() throws SQLException {
-        if(preparedStatement != null) {
+        if (preparedStatement != null) {
             preparedStatement.close();
         }
     }

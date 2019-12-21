@@ -1,6 +1,6 @@
 package mywebserver.XML;
 
-import mywebserver.Temperature;
+import mywebserver.Temperature.Temperature;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

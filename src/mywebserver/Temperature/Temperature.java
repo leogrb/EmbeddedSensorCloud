@@ -1,4 +1,4 @@
-package mywebserver;
+package mywebserver.Temperature;
 
 import java.time.LocalDate;
 

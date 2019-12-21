@@ -1,13 +1,16 @@
 package mywebserver.DAO;
 
 
-import mywebserver.Config;
+import mywebserver.Properties.Config;
 
 import java.sql.*;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Class for managing and storing multiple database connections to make them accessible for multiple threads.
+ */
 public class PostgresConManager {
     private final static Logger LOGGER = Logger.getLogger(PostgresConManager.class.getName());
 
@@ -20,19 +23,24 @@ public class PostgresConManager {
     private Vector<Connection> connectionPool = new Vector<>();
 
 
-    private PostgresConManager()
-    {
+    private PostgresConManager() {
         this.userName = Config.newInstance().getProp("username");
         this.password = Config.newInstance().getProp("password");
         this.driver = Config.newInstance().getProp("driver");
     }
 
+    /**
+     * Initialize the connection pool.
+     */
     public void initialize() {
-        //Here we can initialize all the information that we need
         initializeConnectionPool();
     }
 
-    // make object shareable
+    /**
+     * Returns the PostgresConManager instance
+     *
+     * @return The PostgresConManager instance
+     */
     public static synchronized PostgresConManager newPCNInstance() {
         if (PCN != null) {
         } else {
@@ -41,6 +49,9 @@ public class PostgresConManager {
         return PCN;
     }
 
+    /**
+     * Start the connection pool by adding connections.
+     */
     private void initializeConnectionPool() {
         while (!checkIfConnectionPoolIsFull()) {
             LOGGER.log(Level.INFO, "Connection Pool is NOT full. Proceeding with adding new connections");
@@ -50,9 +61,13 @@ public class PostgresConManager {
         LOGGER.log(Level.INFO, "Connection Pool is full.");
     }
 
+    /**
+     * Checks if the connection pool is full
+     *
+     * @return true if the connection pool is full
+     */
     private synchronized boolean checkIfConnectionPoolIsFull() {
 
-        //Check if pool size is full
         if (connectionPool.size() < INIT_MAX_POOL_SIZE) {
             return false;
         }
@@ -60,7 +75,11 @@ public class PostgresConManager {
         return true;
     }
 
-    //Creating a connection
+    /**
+     * Establish a connection to the DB
+     *
+     * @return Connection to DB
+     */
     private Connection createNewConnectionForPool() {
         Connection connection = null;
 
@@ -77,6 +96,11 @@ public class PostgresConManager {
         return connection;
     }
 
+    /**
+     * Get a connection by taking it out of the pool
+     *
+     * @return connection to DB
+     */
     public synchronized Connection getConnectionFromPool() {
         Connection connection = null;
 
@@ -93,11 +117,21 @@ public class PostgresConManager {
         return connection;
     }
 
+    /**
+     * Returns a connection to the pool
+     *
+     * @param connection The connection to be returned
+     */
     public synchronized void returnConnectionToPool(Connection connection) {
         //Adding the connection from the client back to the connection pool
         connectionPool.addElement(connection);
     }
 
+    /**
+     * Close all connections existing in the connection pool
+     *
+     * @throws SQLException - if a database access error occurs
+     */
     public synchronized void closeConnections() throws SQLException {
         for (Connection con : connectionPool) {
             LOGGER.log(Level.INFO, "Closing connection " + con);

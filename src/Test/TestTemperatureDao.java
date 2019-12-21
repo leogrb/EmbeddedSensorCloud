@@ -2,7 +2,7 @@ package Test;
 
 import mywebserver.DAO.PostgresConManager;
 import mywebserver.DAO.TemperatureDao;
-import mywebserver.Temperature;
+import mywebserver.Temperature.Temperature;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
