@@ -4,6 +4,7 @@ import BIF.SWE1.interfaces.Plugin;
 import BIF.SWE1.interfaces.PluginManager;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -36,18 +37,15 @@ public class PluginManagerImpl implements PluginManager {
     }
 
     @Override
-    public void add(String plugin) throws InstantiationException, IllegalAccessException, ClassNotFoundException, MalformedURLException {
+    public void add(String plugin) throws InstantiationException, IllegalAccessException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
         Plugin plug = null;
         Class<?> clazz = Class.forName(plugin);
         Class[] interfaces = clazz.getInterfaces();
         for (Class i : interfaces) {
             if (i.toString().equals(Plugin.class.toString())) {
-                plug = (Plugin) clazz.newInstance();
+                    plug = (Plugin) clazz.getDeclaredConstructor().newInstance();
             }
         }
-                    /*if(Plugin.class.isAssignableFrom(clazz)){
-                        plug = (Plugin) clazz.newInstance();
-                    }*/
         if (plug != null) {
             add(plug);
         } else {

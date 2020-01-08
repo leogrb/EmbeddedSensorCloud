@@ -98,7 +98,7 @@ public class ResponseImpl implements Response {
     @Override
     public String getStatus() {
         if (status != null) {
-            String statusAsString = Integer.toString(status.getCode()) + " " + status.getDescription();
+            String statusAsString = status.getCode() + " " + status.getDescription();
             return statusAsString;
         }
         throw new IllegalArgumentException("no status was set");

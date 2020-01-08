@@ -44,7 +44,7 @@ public class PluginStatic implements Plugin {
         resp = new ResponseImpl();
         boolean validFile = true;
         // construct static file folder
-        String folderAbsPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "tmp-static-files";
+        String folderAbsPath = System.getProperty("user.dir") + System.getProperty("file.separator") + "deploy" + System.getProperty("file.separator")+ "tmp-static-files";
         final File staticFolder = new File(folderAbsPath);
         if (!staticFolder.exists()) {
             staticFolder.mkdirs();
@@ -73,7 +73,6 @@ public class PluginStatic implements Plugin {
                 resp.setContent(fileStream);
                 resp.setStatusCode(200);
             }
-            //resp.setContent();
             else {
                 requestedFile = new File(folderRelPath + "404err.html");
                 resp.setMimeType("html");

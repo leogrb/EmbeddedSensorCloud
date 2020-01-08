@@ -1,6 +1,7 @@
 package Test;
 
 import mywebserver.DAO.PostgresConManager;
+import mywebserver.Properties.Config;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,6 +14,12 @@ import static org.junit.Assert.assertTrue;
 public class TestPostgresConManager {
     @BeforeClass
     public static void setUpBeforeClass() {
+        Config config = Config.newInstance();
+        config.initialize();
+        config.setProps("username", "postgres");
+        config.setProps("password", "leo");
+        config.setProps("driver", "org.postgresql.Driver");
+        config.setProps("port", "80");
         PostgresConManager PCN = PostgresConManager.newPCNInstance();
         PCN.initialize();
     }

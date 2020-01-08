@@ -30,6 +30,10 @@ public class Config {
         return config;
     }
 
+    public void setProps(String key, String value){
+        props.setProperty(key, value);
+    }
+
     public String getProp(String property){
         return props.getProperty(property);
     }

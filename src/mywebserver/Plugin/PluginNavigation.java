@@ -77,11 +77,11 @@ public class PluginNavigation implements Plugin {
         } catch (UnsupportedEncodingException e) {
             LOGGER.log(Level.SEVERE, "Unexpected error: " + e.getMessage(), e);
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Unexpected error: " + e.getMessage(), e);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Unexpected error: " + e.getMessage(), e);
         } catch (SAXException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Unexpected error: " + e.getMessage(), e);
         } catch (IllegalAccessException e) {
             resp.setContent("Warning: Parser is busy right now");
             resp.setStatusCode(200);

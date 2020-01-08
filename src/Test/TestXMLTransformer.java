@@ -31,6 +31,6 @@ public class TestXMLTransformer {
         data.add(temp);
         String xmlString = XMLTransformer.transformXML(XMLBuilder.createValidXML(data));
         assertNotNull("String is null", xmlString);
-        assertTrue("Incorrect string", xmlString.equals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><temperatures><temperature id=\"1\"><date>2019-11-14</date><temp>99.9</temp></temperature></temperatures>"));
+        assertTrue("Incorrect string", xmlString.equals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><temperatures><temperature id=\"1\"><date>" + LocalDate.now()+"</date><temp>99.9</temp></temperature></temperatures>"));
     }
 }

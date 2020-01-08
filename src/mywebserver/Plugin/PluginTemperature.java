@@ -98,7 +98,7 @@ public class PluginTemperature implements Plugin {
                     }
                 }
             }
-            //TODO: Invalid Get Request aka GetTemperature/2019
+
             Document xml;
             if (data != null) {
                 xml = XMLBuilder.createValidXML(data);
@@ -120,11 +120,6 @@ public class PluginTemperature implements Plugin {
         } finally {
             PCN.returnConnectionToPool(con);
             try {
-                PCN.closeConnections();
-            } catch (SQLException e) {
-                LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
-            }
-            try {
                 temperatureDao.closeStatement();
             } catch (SQLException e) {
                 LOGGER.log(Level.WARNING, "Unexpected Error: " + e.getMessage(), e);
@@ -144,21 +139,4 @@ public class PluginTemperature implements Plugin {
         }
     }
 
-    /*public static void main(String[] args) {
-        PluginTemperature p = new PluginTemperature();
-        LinkedList <Temperature> l = new LinkedList<>();
-        Temperature t = new Temperature(LocalDate.now(), 2.0f);
-        t.setId(1);
-        Temperature t2 = new Temperature(LocalDate.now(), 3.0f);
-        t2.setId(2);
-        l.add(t);
-        l.add(t2);
-        try {
-            p.createXML(l);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (TransformerException e) {
-            e.printStackTrace();
-        }
-    }*/
 }

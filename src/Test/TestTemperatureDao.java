@@ -2,6 +2,7 @@ package Test;
 
 import mywebserver.DAO.PostgresConManager;
 import mywebserver.DAO.TemperatureDao;
+import mywebserver.Properties.Config;
 import mywebserver.Temperature.Temperature;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -19,6 +20,12 @@ import static org.junit.Assert.assertTrue;
 public class TestTemperatureDao {
     @BeforeClass
     public static void setUpBeforeClass() {
+        Config config = Config.newInstance();
+        config.initialize();
+        config.setProps("username", "postgres");
+        config.setProps("password", "leo");
+        config.setProps("driver", "org.postgresql.Driver");
+        config.setProps("port", "80");
         PostgresConManager PCN = PostgresConManager.newPCNInstance();
         PCN.initialize();
     }
@@ -39,7 +46,7 @@ public class TestTemperatureDao {
         Temperature temp = new Temperature(LocalDate.now(), 99.9f);
         int res = temperatureDao.insertTemp(con, temp);
         assertEquals(res, 1);
-        String preStatement = "SELECT temp FROM temperature WHERE day = ? ORDER BY day ASC";
+        String preStatement = "SELECT temp FROM temperature WHERE day = ? ORDER BY day DESC";
         PreparedStatement preparedStatement = con.prepareStatement(preStatement);
         preparedStatement.setObject(1, LocalDate.now());
         ResultSet rs = preparedStatement.executeQuery();
@@ -57,7 +64,7 @@ public class TestTemperatureDao {
         TemperatureDao temperatureDao = new TemperatureDao();
         temperatureDao.createTable(con);
         LinkedList<Temperature> data = temperatureDao.getAllTemperature(con);
-        assertTrue("50 entries have to be returned", data.size() == 50);
+        assertTrue("Over 10000 entries have to be returned", data.size() > 10000);
         PCN.returnConnectionToPool(con);
     }
 }

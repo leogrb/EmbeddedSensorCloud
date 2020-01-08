@@ -2,44 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba604a38-ffe7-4b88-93f7-9096a459a3e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Test/TestMonths.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test/TestStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_8.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/CustomTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/deploy/tmp-static-files/foo-778b28fe-005b-46ec-8d9a-e70dec61fb1a.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/deploy/tmp-static-files/foo-9559c2e4-3f7f-40a7-b403-d92811c52a05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/deploy/tmp-static-files/foo-a922cc01-a873-4692-b5be-bee8d06b4412.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/deploy/tmp-static-files/foo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/tmp-static-files/tempScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/tmp-static-files/tempScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/TestPluginTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/Test/TestPluginTemperature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/TestPostgresConManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/Test/TestPostgresConManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/TestStreetCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/Test/TestStreetCollection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/TestTemperatureDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/Test/TestTemperatureDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/TestXMLBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/Test/TestXMLBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/Test/TestXMLTransformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/Test/TestXMLTransformer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/PostgresConManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/PostgresConManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/TemperatureDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/DAO/TemperatureDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpRequest/RequestImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpRequest/RequestImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpResponse/ResponseImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpResponse/ResponseImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpResponse/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/HttpResponse/Status.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Navigation/StreetCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Navigation/StreetCollection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/MultiServer/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/MultiServer/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginManagerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginNavigation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginNavigation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginStatic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginStatic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Plugin/PluginTemperature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Properties/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Properties/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/XMLParserSAX.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/SAX/XMLParserSAX.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensor/Sensorthread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Sensor/Sensorthread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/Temperature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/XML/XMLBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/XML/XMLBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/CustomTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/TestStreetCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/TestStreetCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/XML/XMLTransformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mywebserver/mywebserver/XML/XMLTransformer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/TestPluginTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/TestPluginTemperature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/TestPostgresConManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/TestPostgresConManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test/TestTemperatureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/TestTemperatureDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/TestXMLBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/TestXMLBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test/TestXMLTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/TestXMLTransformer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Properties/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/DAO/PostgresConManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/DAO/PostgresConManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/DAO/TemperatureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/DAO/TemperatureDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/HttpRequest/RequestImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpRequest/RequestImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/HttpResponse/ResponseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpResponse/ResponseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/HttpResponse/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/HttpResponse/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Navigation/StreetCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Navigation/StreetCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/MultiServer/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/MultiServer/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginNavigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginStatic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Plugin/PluginTemperature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/Properties/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Properties/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/SAX/NavStreetHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/SAX/NavStreetHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/SAX/XMLParserSAX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/SAX/XMLParserSAX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mywebserver/Sensor/Sensorthread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Sensor/Sensorthread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/Temperature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/Temperature/Temperature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mywebserver/XML/XMLBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/XML/XMLBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mywebserver/XML/XMLTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mywebserver/XML/XMLTransformer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +102,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestStreetCollection.handleNode_should_add_street">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mywebserver.Main.Main" />
       <module name="mywebserver" />
@@ -111,7 +116,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestNavigationPlugin.PluginNavigation_should_set_error_response_if_form_empty" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="TestMIMETypes and 11 more" type="JUnit" factoryName="JUnit" singleton="false" nameIsGenerated="true">
+      <module name="BIF-SWE1.UnitTests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="12" />
+      <option name="PACKAGE_NAME" value="BIF.SWE1.unittests" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
+      <patterns>
+        <pattern testClass="Test.TestMIMETypes" />
+        <pattern testClass="Test.TestMonths" />
+        <pattern testClass="Test.TestNavigationPlugin" />
+        <pattern testClass="Test.TestPluginStatic" />
+        <pattern testClass="Test.TestPluginTemperature" />
+        <pattern testClass="Test.TestPluginToLower" />
+        <pattern testClass="Test.TestPostgresConManager" />
+        <pattern testClass="Test.TestStatus" />
+        <pattern testClass="Test.TestStreetCollection" />
+        <pattern testClass="Test.TestTemperatureDao" />
+        <pattern testClass="Test.TestXMLBuilder" />
+        <pattern testClass="Test.TestXMLTransformer" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMIMETypes.MIMETypes_should_return_MimeType" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
         <pattern>
@@ -122,8 +155,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.TestNavigationPlugin" />
-      <option name="METHOD_NAME" value="PluginNavigation_should_set_error_response_if_form_empty" />
+      <option name="MAIN_CLASS_NAME" value="Test.TestMIMETypes" />
+      <option name="METHOD_NAME" value="MIMETypes_should_return_MimeType" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
@@ -131,7 +164,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestStatus.Status_should_return_proper_status" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="TestPluginTemperature.PluginTemperature_handle_invalidDate_REST" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
         <pattern>
@@ -142,8 +175,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.TestStatus" />
-      <option name="METHOD_NAME" value="Status_should_return_proper_status" />
+      <option name="MAIN_CLASS_NAME" value="Test.TestPluginTemperature" />
+      <option name="METHOD_NAME" value="PluginTemperature_handle_invalidDate_REST" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
@@ -151,7 +184,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestStreetCollection.get_cities_of_street_should_return_cities" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTemperatureDao.TemperatureDao_should_insert_temperature" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
         <pattern>
@@ -162,8 +195,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.TestStreetCollection" />
-      <option name="METHOD_NAME" value="get_cities_of_street_should_return_cities" />
+      <option name="MAIN_CLASS_NAME" value="Test.TestTemperatureDao" />
+      <option name="METHOD_NAME" value="TemperatureDao_should_insert_temperature" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
@@ -171,7 +204,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestStreetCollection.handleNode_should_add_street" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTemperatureDao.TemperatureDao_should_return_50_entries" type="JUnit" factoryName="JUnit" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="BIF-SWE1.UnitTests" />
       <extension name="coverage">
         <pattern>
@@ -182,8 +215,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="PACKAGE_NAME" value="Test" />
-      <option name="MAIN_CLASS_NAME" value="Test.TestStreetCollection" />
-      <option name="METHOD_NAME" value="handleNode_should_add_street" />
+      <option name="MAIN_CLASS_NAME" value="Test.TestTemperatureDao" />
+      <option name="METHOD_NAME" value="TemperatureDao_should_return_50_entries" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/deploy" />
@@ -207,18 +240,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.TestNavigationPlugin.PluginNavigation_should_set_error_response_if_form_empty" />
-      <item itemvalue="JUnit.TestStatus.Status_should_return_proper_status" />
-      <item itemvalue="JUnit.TestStreetCollection.get_cities_of_street_should_return_cities" />
-      <item itemvalue="JUnit.TestStreetCollection.handleNode_should_add_street" />
+      <item itemvalue="JUnit.TestMIMETypes and 11 more" />
+      <item itemvalue="JUnit.TestMIMETypes.MIMETypes_should_return_MimeType" />
+      <item itemvalue="JUnit.TestPluginTemperature.PluginTemperature_handle_invalidDate_REST" />
+      <item itemvalue="JUnit.TestTemperatureDao.TemperatureDao_should_return_50_entries" />
+      <item itemvalue="JUnit.TestTemperatureDao.TemperatureDao_should_insert_temperature" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestStreetCollection.handleNode_should_add_street" />
-        <item itemvalue="JUnit.TestStreetCollection.get_cities_of_street_should_return_cities" />
-        <item itemvalue="JUnit.TestStatus.Status_should_return_proper_status" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TestNavigationPlugin.PluginNavigation_should_set_error_response_if_form_empty" />
+        <item itemvalue="JUnit.TestTemperatureDao.TemperatureDao_should_insert_temperature" />
+        <item itemvalue="JUnit.TestTemperatureDao.TemperatureDao_should_return_50_entries" />
+        <item itemvalue="JUnit.TestPluginTemperature.PluginTemperature_handle_invalidDate_REST" />
+        <item itemvalue="JUnit.TestMIMETypes.MIMETypes_should_return_MimeType" />
       </list>
     </recent_temporary>
   </component>

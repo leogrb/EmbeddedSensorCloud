@@ -34,7 +34,6 @@ public class Sensorthread implements Runnable {
             if (!isTestData) {
                 createTestData();
             }
-            // read temperature data
             while (true) {
                 temperatureDao.insertTemp(con, createRandomTempObj(cur));
                 Thread.sleep(10000);

@@ -24,7 +24,6 @@ public class XMLParserSAX {
         handler.tryLock();
         LOGGER.log(Level.INFO, "Initializing XML parsing");
         saxParser.parse(new File(path), handler);
-        //print employee information
         LOGGER.log(Level.INFO, "XML parsing finished");
         handler.unLock();
         return handler.getsColl();

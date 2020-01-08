@@ -6,6 +6,7 @@ import BIF.SWE1.interfaces.Response;
 import mywebserver.DAO.PostgresConManager;
 import mywebserver.HttpRequest.RequestImpl;
 import mywebserver.Plugin.PluginTemperature;
+import mywebserver.Properties.Config;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -18,6 +19,12 @@ public class TestPluginTemperature {
 
     @BeforeClass
     public static void setUpBeforeClass() {
+        Config config = Config.newInstance();
+        config.initialize();
+        config.setProps("username", "postgres");
+        config.setProps("password", "leo");
+        config.setProps("driver", "org.postgresql.Driver");
+        config.setProps("port", "80");
         PostgresConManager PCN = PostgresConManager.newPCNInstance();
         PCN.initialize();
     }
@@ -49,8 +56,9 @@ public class TestPluginTemperature {
     @Test
     public void PluginTemperature_handle_valid_REST() throws Exception {
         Plugin p = new PluginTemperature();
-        String resturl = "localhost/GetTemperature/2019/05/11";
+        String resturl = "/GetTemperature/2019/05/11";
         Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
+        p.canHandle(req);
         Response res = p.handle(req);
         String b = getBody(res).toString();
         assertTrue("application/xml expected", res.getContentType().equals("application/xml"));
@@ -61,7 +69,7 @@ public class TestPluginTemperature {
     @Test
     public void PluginTemperature_handle_invalidDate_REST() throws Exception {
         Plugin p = new PluginTemperature();
-        String resturl = "localhost/GetTemperature/2019000/05/11";
+        String resturl = "/GetTemperature/2019000/05/11";
         Request req = new RequestImpl(RequestHelper.getValidRequestStream(resturl));
         Response res = p.handle(req);
         String b = getBody(res).toString();
